@@ -1,6 +1,6 @@
 
 import './App.css'
-import { NavBar } from './components/NavBar'
+import { NavBar } from './components/NavBar/NavBar'
 import { Body } from './layout/Body/Body'
 
 export const App = () => {
