@@ -1,0 +1,17 @@
+
+.registerBody {
+    display: flex;
+    justify-content: center;
+}
+
+.registerContent {
+    width: 75%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.registerFormBox {
+    width: 90%;
+    margin-left:5em;
+}

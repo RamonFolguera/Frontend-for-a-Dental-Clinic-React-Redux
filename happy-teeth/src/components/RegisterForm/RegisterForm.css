@@ -1,0 +1,17 @@
+
+
+
+
+
+.formsRegulations {
+    display: flex;
+    
+}
+
+.regulationsLabel {
+    font-size: 0.7em;
+}
+
+.regulationsInput {
+    height: 2.5em;
+}
