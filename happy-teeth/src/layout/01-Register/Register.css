@@ -8,10 +8,22 @@
     width: 75%;
     display: flex;
     justify-content: center;
-
 }
 
 .registerFormBox {
     width: 90%;
     margin-left:5em;
+}
+
+.formsRegulations {
+    display: flex;
+    
+}
+
+.regulationsLabel {
+    font-size: 0.7em;
+}
+
+.regulationsInput {
+    height: 2.5em;
 }

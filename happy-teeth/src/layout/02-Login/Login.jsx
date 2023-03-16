@@ -1,15 +1,86 @@
-import React from 'react'
-import { LoginForm } from '../../components/LoginForm/LoginForm'
-import './Login.css'
+import React, { useState } from "react";
+import { InputTemplate } from "../../components/InputTemplate/InputTemplate";
+import "./Login.css";
 
 export const Login = () => {
-  return (
-    
-    
-    <div className='loginFormContainer'>
+  const [credentials, setCredentials] = useState({
+    email: "",
+    password: "",
+  });
 
-      <LoginForm/>
-    
+  const [credentialsError, setCredentialsError] = useState({
+    emailError: "",
+    passwordError: "",
+  });
+
+  const [welcome, setWelcome] = useState("");
+
+  const inputHandler = ({ target }) => {
+    const { name, value } = target;
+    setCredentials((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const inputValidate = (e) => {
+    switch (e.target.name) {
+      case "email":
+        break;
+
+      case "password":
+        if (credentials.password.length < 8) {
+          console.log(credentials.password.length);
+          setCredentialsError((prevState) => ({
+            ...prevState,
+            passwordError:
+              "You must enter a password with minimum 8 characters",
+          }));
+        } else {
+          setCredentialsError((prevState) => ({
+            ...prevState,
+            passwordError: "",
+          }));
+        }
+        break;
+
+      default:
+        console.log("default");
+    }
+  };
+
+  const loginFunction = () => {
+    loginMe(credentials)
+  }
+
+  return (
+    <div className="loginFormContainer">
+      {welcome === "" ? (
+        <>
+          <InputTemplate
+            type="email"
+            name="email"
+            placeholder="escribe un email"
+            changeFunction={(e) => inputHandler(e)}
+            validateFunction={(e) => inputValidate(e)}
+          />
+          <div>{credentialsError.emailError}</div>
+
+          <InputTemplate
+            type="password"
+            name="password"
+            placeholder="escribe un password"
+            changeFunction={(e) => inputHandler(e)}
+            validateFunction={(e) => inputValidate(e)}
+          />
+          <div>{credentialsError.passwordError}</div>
+          <div className="buttonLoginDesign" onClick={() => loginFunction()}>
+            Log me
+          </div>
+        </>
+      ) : (
+        <div>{welcome}</div>
+      )}
     </div>
-  )
-}
+  );
+};
