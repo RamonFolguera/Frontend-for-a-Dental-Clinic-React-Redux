@@ -36,3 +36,10 @@
     background-color: rgb(151, 151, 193);
     transition: 1s;
 }
+
+.loginFormContainer {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

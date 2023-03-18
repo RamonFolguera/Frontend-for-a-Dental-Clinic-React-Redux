@@ -1,8 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { InputTemplate } from "../../components/InputTemplate/InputTemplate";
+import { logMe } from "../../services/apiCalls";
 import "./Login.css";
 
+import { useDispatch, useSelector } from "react-redux";
+import { login, userData } from "../userSlice";
+
+import { decodeToken } from "react-jwt";
+
 export const Login = () => {
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();  //Instanciamos modo escritura Redux
+  const credentialsRdx = useSelector(userData); //Instanciamos modo lecutura Redux
+
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -14,6 +26,12 @@ export const Login = () => {
   });
 
   const [welcome, setWelcome] = useState("");
+
+  useEffect(() => {
+    if (credentialsRdx.credentials.token) {
+      navigate("/");
+    }
+  })
 
   const inputHandler = ({ target }) => {
     const { name, value } = target;
@@ -29,12 +47,12 @@ export const Login = () => {
         break;
 
       case "password":
-        if (credentials.password.length < 8) {
+        if (credentials.password.length < 6) {
           console.log(credentials.password.length);
           setCredentialsError((prevState) => ({
             ...prevState,
             passwordError:
-              "You must enter a password with minimum 8 characters",
+              "You must enter a password with minimum 6 characters",
           }));
         } else {
           setCredentialsError((prevState) => ({
@@ -50,7 +68,27 @@ export const Login = () => {
   };
 
   const loginFunction = () => {
-    loginMe(credentials)
+    logMe(credentials)
+    .then((userData) => {
+          let decoded = decodeToken(userData.data.data)
+          console.log(decoded)
+          let dataBackend = {
+          token: userData.data.data,
+          user: decoded
+        }
+        console.log(dataBackend)
+      
+        dispatch(login({credentials: dataBackend}));
+        console.log( dispatch(login({credentials: dataBackend})))
+      
+      setWelcome(`Welcome back ${userData.name}`);
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
+    })
+    .catch((error) => console.log(error))
+
+
   }
 
   return (

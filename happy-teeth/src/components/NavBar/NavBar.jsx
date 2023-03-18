@@ -28,6 +28,7 @@ export const NavBar = () => {
             <Nav.Link as={Link} to='/register'>Register</Nav.Link>
             <Nav.Link as={Link} to='/login'>Login</Nav.Link>
             <Nav.Link as={Link} to='/profile'>Profile</Nav.Link>
+            <Nav.Link as={Link} to='/users-as-admin'>All users as admin</Nav.Link>
             <NavDropdown title="Appointments" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to='/appointments-clients'>For clients</NavDropdown.Item>
               <NavDropdown.Item as={Link} to='/appointments-dentists'>

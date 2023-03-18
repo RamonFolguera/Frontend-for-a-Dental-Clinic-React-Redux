@@ -1,0 +1,23 @@
+{type: 'user/login', payload: {…}}
+payload
+: 
+credentials
+: 
+token
+: 
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImVtYWlsIjoicGF1bGFAcGF1bGEuY29tIiwicm9sZUlkIjoyLCJpYXQiOjE2NzkxNDI1NDQsImV4cCI6MTY3OTE0OTc0NH0.E7B-MmfhVLqwzB3KgWWGPGsaE-oEeonY-lhPpZamSOI"
+user
+: 
+{userId: 4, email: 'paula@paula.com', roleId: 2, iat: 1679142544, exp: 1679149744}
+[[Prototype]]
+: 
+Object
+[[Prototype]]
+: 
+Object
+type
+: 
+"user/login"
+[[Prototype]]
+: 
+Object
