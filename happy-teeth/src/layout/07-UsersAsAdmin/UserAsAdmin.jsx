@@ -21,11 +21,13 @@ export const UserAsAdmin = () => {
 
 
   useEffect(() => {
-
+console.log(users.length)
     if(users.length === 0){
       bringUsers(credentialsRdx.credentials.token)
         .then(
           result => {
+            console.log(result)
+
             setUsers(result.data.data)
           }
         )

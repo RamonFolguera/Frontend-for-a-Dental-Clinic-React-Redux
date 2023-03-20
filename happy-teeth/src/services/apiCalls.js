@@ -14,9 +14,11 @@ export const bringUsers = async (token) => {
     return await axios.get(`${root}users/admin`, config);
 }
 
+export const registerUser = async (body) => {
 
+  return await axios.post(`${root}auth/register`, body)
 
-
+}
 
 export const logMe = async (body) => {
 

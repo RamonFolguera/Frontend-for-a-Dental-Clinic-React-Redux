@@ -2,10 +2,25 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { userData, userout } from '../../layout/userSlice';
 
 
 export const NavBar = () => {
+
+
+
+    const dispatch = useDispatch()
+    const credentialsRdx = useSelector(userData)
+    const logoutFunction = () => {
+
+    dispatch(userout({credentials: {}, token: ""} ));
+  // console.log(credentials)
+  console.log(dispatch(userout({credentials: {}, token: ""} )))
+
+  }
+
   return (
     <Navbar bg="white" expand="lg">
       <Container>
@@ -20,6 +35,9 @@ export const NavBar = () => {
             />
 
         </Navbar.Brand>
+
+       
+
         </Nav>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -43,6 +61,13 @@ export const NavBar = () => {
           </Nav>
           
         </Navbar.Collapse>
+        <div
+         
+          className="buttonLogoutDesign"
+          onClick={() => logoutFunction()}
+        >
+          Logout
+          </div>
       </Container>
     </Navbar>
   );

@@ -46,10 +46,10 @@ export const Login = () => {
       case "email":
         break;
 
-      case "password":
+      case "password": 
         if (credentials.password.length < 6) {
 
-          
+
           setCredentialsError((prevState) => ({
             ...prevState,
             passwordError:
