@@ -48,7 +48,8 @@ export const Login = () => {
 
       case "password":
         if (credentials.password.length < 6) {
-          console.log(credentials.password.length);
+
+          
           setCredentialsError((prevState) => ({
             ...prevState,
             passwordError:

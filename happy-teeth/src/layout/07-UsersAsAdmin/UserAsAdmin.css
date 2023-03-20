@@ -1,0 +1,25 @@
+
+
+
+
+.cardsContainer {
+    border: 1px solid black;
+    
+    width: 100vw;
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.userCardDesign {
+    margin: 1em;
+    height: 10em;
+    width: 30em;
+    background-color: rgb(203, 203, 203);
+    border: 0.05em grey solid;
+}
+
+.userCardDesign:hover{
+    background-color: rgb(252, 252, 252);
+    cursor: pointer;
+}

@@ -2,17 +2,26 @@
 .registerBody {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+   
 }
 
 .registerContent {
+    margin: 3em 0;
     width: 75%;
     display: flex;
     justify-content: center;
+    
 }
 
 .registerFormBox {
+    padding: 2em;
     width: 90%;
     margin-left:5em;
+    border: 0.05em solid blue;
+    border-radius: 1em;
+    background-color: rgb(242, 242, 253);
 }
 
 .formsRegulations {
@@ -27,3 +36,20 @@
 .regulationsInput {
     height: 2.5em;
 }
+
+.inputBasicDesign {
+    width: 100%;
+}
+
+.registerSendDeac {
+border-radius: 0.5em;
+ border: 0.1em solid blue;
+ background-color: blue;
+ color: white
+
+}
+
+.registerSendDeac:hover {
+    background-color: rgb(132, 132, 217);
+    
+   }

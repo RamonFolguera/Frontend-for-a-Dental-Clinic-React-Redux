@@ -7,7 +7,7 @@
 
 .bck-img-container {
     margin: 0;
-    height: 85vh;
+    height: 35em;
     width: 100%;
     background-image: url('../../../img/girl-smiling.jpg');
     background-repeat: no-repeat;
@@ -20,3 +20,14 @@
     padding-top: 10em;
     width: 1em;
 }
+
+.section2 {
+    padding-top: 1em;
+    border: 1px solid black;
+    height: 10em;
+}
+
+.section2-text {
+    width: 80%;
+}
+

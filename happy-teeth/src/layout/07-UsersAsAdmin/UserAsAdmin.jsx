@@ -3,7 +3,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import { bringUsers } from '../../services/apiCalls';
 import { userData } from '../userSlice';
+import Spinner from 'react-bootstrap/Spinner';
+import { addChoosen } from '../detailsSlice';
 
+
+import './UserAsAdmin.css'
 
 export const UserAsAdmin = () => {
 
@@ -12,14 +16,8 @@ export const UserAsAdmin = () => {
 
   const credentialsRdx = useSelector(userData)
 
-  console.log(credentialsRdx)
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-console.log(credentialsRdx.credentials.token)
-console.log(credentialsRdx.credentials.user)
-
 
 
   useEffect(() => {
@@ -36,23 +34,36 @@ console.log(credentialsRdx.credentials.user)
 
   },[users])
 
+  const selected = (user) => {
+    
+    dispatch(addChoosen({ choosenOject: user}))
+    console.log({ choosenOject: user})
+    setTimeout(() => {
+      navigate('/profile');
+    }, 500)
+  }
+
 
 
 
 
   return (
     <div className="usersDesign">
-hola
+   
       { users.length > 0 ? 
-      (<div>
+      (<div className="cardsContainer">
         {
           users.map(
             user => {
               return (
-                <div
-                  key={user.id}>
-                  {user.name}
-                </div>
+          
+                  <div
+                    className= "userCardDesign"
+                    onClick = {() => selected(user)}
+                    key={user.id}>
+                    {user.name}
+                  </div>
+             
               )
             }
           )
@@ -62,7 +73,7 @@ hola
         
         :
 
-        (<div>ESTÁN VINIENDO</div>)
+        ( <Spinner animation="border" variant="primary" />)
       
       }
 
