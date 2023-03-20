@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
-import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
+import { Col, Container, Row } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+
 import { InputText } from "../../components/InputText/InputText";
 import { validate } from "../../helpers/useful";
+import { registerUser } from "../../services/apiCalls";
 import "./Register.css";
 
 export const Register = () => {
+
+  const navigate = useNavigate();
 
   const [credentials, setCredentials] = useState({
     name: "",
@@ -17,6 +20,14 @@ export const Register = () => {
     email: "",
     password: "",
   });
+
+  const inputHandler = (e) => {
+
+    setCredentials((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
   const [valiCredentials, setValiCredentials] = useState({
     nameVali: false,
@@ -41,13 +52,8 @@ export const Register = () => {
 
   const [registerAct, setRegisterAct] = useState(false);
 
-  const inputHandler = ({ target }) => {
-    const { name, value } = target;
-    setCredentials((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
+  const [welcome, setWelcome] = useState("");
+ 
 
 useEffect(() => {
   for(let error in credentialsError) {
@@ -98,9 +104,15 @@ const checkError = (e) => {
   }));
 };
 
-const fakeRegister = () => {
+const userRegister = () => {
 
-  console.log("registrado correctamente");
+  registerUser(credentials)
+
+  setWelcome(`Hi. Thank you for trusting in us!`);
+  setTimeout(() => {
+    navigate("/");
+  }, 3000);
+
 }
 
   return (
@@ -108,9 +120,10 @@ const fakeRegister = () => {
       <div className="registerTitle w-100 text-center bg-dark text-white pt-3 pb-3">
       <h1>Register with Happy Teeth</h1>
       </div>
+       {welcome === "" ? (
       <div className="registerContent">
         
-        <div className="registerInfo">
+        {/* <div className="registerInfo">
           HAPPY TEETH. DENTAL CLINIC
           <p>Plaza América, 5 . 46006 València america@idim.es</p>
           <p>How to get there by public transport</p>
@@ -124,12 +137,12 @@ const fakeRegister = () => {
           <p>Parking</p>
           <p>Paseo Alameda area (between 3pm and 4pm)</p>
           <p>Mercado de Colón parking lot</p>
-        </div>
+        </div> */}
         <div className="registerFormBox">
-          <Form>
+          <Container>
             <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridName">
-                <Form.Label>Name</Form.Label>
+              <Col md={4} id="formGridName">
+                <p>Name</p>
                 <InputText
                   className={
                     credentialsError.nameError === ""
@@ -140,16 +153,16 @@ const fakeRegister = () => {
                   type={"text"}
                   name={"name"}
                   placeholder="Name"
-                  required={false}
+                  required={true}
                   changeFunction={(e) => inputHandler(e)}
                   blurFunction={(e) => checkError(e)}
                 />
                 <div>{credentialsError.nameError}</div>
 
-              </Form.Group>
+              </Col>
 
-              <Form.Group as={Col} controlId="formGridFirstSurname">
-                <Form.Label>First Surname</Form.Label>
+              <Col md={4} id="formGridFirstSurname">
+                <p>First Surname</p>
                 <InputText
                   className={
                     credentialsError.first_surnameError === ""
@@ -158,16 +171,16 @@ const fakeRegister = () => {
                   }
                   type={"text"}
                   name={"first_surname"}
-                  required={false}
+                  required={true}
                   placeholder="First Surname"
                   changeFunction={(e) => inputHandler(e)}
                   blurFunction={(e) => checkError(e)}
                 />
                 <div>{credentialsError.first_surnameError}</div>
-              </Form.Group>
+              </Col>
 
-              <Form.Group as={Col} controlId="formGridSecondSurname">
-                <Form.Label>Second Surname</Form.Label>
+              <Col md={4} id="formGridSecondSurname">
+                <p>Second Surname</p>
                 <InputText
                   className={
                     credentialsError.second_surnameError === ""
@@ -176,19 +189,19 @@ const fakeRegister = () => {
                   }
                   type={"text"}
                   name={"second_surname"}
-                  required={false}
+                  required={true}
                   placeholder="Second Surname"
                   changeFunction={(e) => inputHandler(e)}
                   blurFunction={(e) => checkError(e)}
                 />
                 <div>{credentialsError.second_surnameError}</div>
-              </Form.Group>
+              </Col>
 
               
             </Row>
             <Row className="mb-3">
-            <Form.Group as={Col} controlId="formGridPhone">
-                <Form.Label>Phone number</Form.Label>
+            <Col md={4} id="formGridPhone">
+                <p>Phone number</p>
                 <InputText
                   className={
                     credentialsError.phoneError === ""
@@ -197,15 +210,15 @@ const fakeRegister = () => {
                   }
                   type={"text"}
                   name={"phone"}
-                  required={false}
+                  required={true}
                   placeholder="Phone number"
                   changeFunction={(e) => inputHandler(e)}
                   blurFunction={(e) => checkError(e)}
                 />
                 <div>{credentialsError.phoneError}</div>
-              </Form.Group>
-              <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Label>Email address</Form.Label>
+              </Col>
+              <Col md={4} id="formGridEmail">
+                <p>Email address</p>
                 <InputText 
                 className={
                   credentialsError.emailError === ""
@@ -214,16 +227,16 @@ const fakeRegister = () => {
                 }
                 type={"email"}
                 name={"email"}
-                required={false}
+                required={true}
                 placeholder="Email"
                 changeFunction={(e) => inputHandler(e)}
                 blurFunction={(e) => checkError(e)}
               />
               <div>{credentialsError.emailError}</div>
-              </Form.Group>
+              </Col>
 
-              <Form.Group as={Col} controlId="formGridPassword">
-                <Form.Label>Password</Form.Label>
+              <Col md={4} id="formGridPassword">
+                <p>Password</p>
                 <InputText 
                 className={
                   credentialsError.passwordError === ""
@@ -232,17 +245,17 @@ const fakeRegister = () => {
                 }
                 type={"password"}
                 name={"password"}
-                required={false}
+                required={true}
                 placeholder="Password"
                 changeFunction={(e) => inputHandler(e)}
                 blurFunction={(e) => checkError(e)}
               />
               <div>{credentialsError.passwordError}</div>
-              </Form.Group>
+              </Col>
             </Row>
 
-            <Form.Group className="mb-3" controlId="formGridAddress">
-              <Form.Label>Address</Form.Label>
+            <Col md={3} id="formGridAddress">
+              <p>Address</p>
               <InputText 
                 className={
                 credentialsError.addressError === ""
@@ -251,25 +264,24 @@ const fakeRegister = () => {
               }
               type={"text"}
               name={"address"}
-              required={false}
+              required={true}
               placeholder="Address"
               changeFunction={(e) => inputHandler(e)}
               blurFunction={(e) => checkError(e)}
             />
             <div>{credentialsError.addressError}</div>
-            </Form.Group>
+            </Col>
 
-            <Form.Group
-              as={Col}
+            {/* <Col md={3}
               className="formsRegulations"
               controlId="formGridRegulations"
             >
-              <Form.Label className="regulationsLabel">
+              <p className="regulationsLabel">
                 To comply with data protection regulations (2018), we are unable
                 to store and use your information unless you give us your
                 permission. Please select Yes to allow this. View our data
                 protection policy for details.*
-              </Form.Label>
+              </p>
               <Form.Select
                 className="regulationsInput"
                 defaultValue="Please select"
@@ -278,7 +290,8 @@ const fakeRegister = () => {
                 <option>Yes</option>
                 <option>No</option>
               </Form.Select>
-            </Form.Group>
+            </Col> */}
+
 
             <div 
               type="submit"
@@ -288,16 +301,20 @@ const fakeRegister = () => {
               onClick={
                 registerAct
                   ? () => {
-                    fakeRegister();
+                    userRegister();
+                    <div>{welcome}</div>
                   }
                   : () => {}
               }
               >
               Submit
             </div>
-          </Form>
+          </Container>
         </div>
       </div>
+         ) : (
+          <div>{welcome}</div>
+        )}
     </div>
   );
 };
