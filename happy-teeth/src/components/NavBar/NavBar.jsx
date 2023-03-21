@@ -4,20 +4,25 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { detailsData } from '../../layout/detailsSlice';
 import { userData, userout } from '../../layout/userSlice';
 
 
 export const NavBar = () => {
 
+  const dispatch = useDispatch();
+  const credentialsRdx = useSelector(userData);
+  const userDetailedRdx = useSelector(detailsData);
+
+  
+  console.log(userDetailedRdx)
 
 
-    const dispatch = useDispatch()
-    const credentialsRdx = useSelector(userData)
-    const logoutFunction = () => {
 
-    dispatch(userout({credentials: {}, token: ""} ));
-  // console.log(credentials)
-  console.log(dispatch(userout({credentials: {}, token: ""} )))
+  const logoutFunction = () => {
+
+    dispatch(userout({credentials: {}}));
+  console.log(dispatch(userout({credentials: {}} )))
 
   }
 
@@ -33,41 +38,71 @@ export const NavBar = () => {
               height="100"
               className="d-inline-block align-top"
             />
-
         </Navbar.Brand>
-
-       
-
+        
         </Nav>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link as={Link} to='/'>Home</Nav.Link>
-            <Nav.Link as={Link} to='/register'>Register</Nav.Link>
-            <Nav.Link as={Link} to='/login'>Login</Nav.Link>
-            <Nav.Link as={Link} to='/profile'>Profile</Nav.Link>
-            <Nav.Link as={Link} to='/users-as-admin'>All users as admin</Nav.Link>
-            <NavDropdown title="Appointments" id="basic-nav-dropdown">
-              <NavDropdown.Item as={Link} to='/appointments-clients'>For clients</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to='/appointments-dentists'>
-                For dentists
-              </NavDropdown.Item>
+          {!credentialsRdx.credentials?.user?.roleId ? (
+            <>
+              <Nav.Link as={Link} to='/'>Home</Nav.Link>
+              <Nav.Link as={Link} to='/register'>Register</Nav.Link>
+              <Nav.Link as={Link} to='/login'>Login</Nav.Link>
+            </>
+            ) : credentialsRdx.credentials?.user?.roleId === 2 ?  (
+            <>
+              <Nav.Link as={Link} to='/patients-profile'>
+              <div>{credentialsRdx.credentials?.user?.name}</div>
+              </Nav.Link>
+              <Nav.Link as={Link} to='/users-as-admin'>All users as admin</Nav.Link>  
+              <Nav.Link 
+                className="buttonLogoutDesign"
+                onClick={() => logoutFunction()}>
+                Logout
+              </Nav.Link>
+            </>
+            ) :  credentialsRdx.credentials?.user?.roleId === 1 ? (
+            <>
+            <Nav.Link as={Link} to='/appointments-as-client'>Appointments</Nav.Link>
+            <Nav.Link as={Link} to='/modify-appointment'>Modify Appointments</Nav.Link>
+            <Nav.Link as={Link} to='/create-appointment'>Create Appointments</Nav.Link>
+              
+            <Nav.Link 
+                className="buttonLogoutDesign"
+                onClick={() => logoutFunction()}>
+                Logout
+              </Nav.Link>
+            </>
+            ) :  credentialsRdx.credentials?.user?.roleId === 3 ? (
+            <>
+            <Nav.Link as={Link} to='/appointments-as-dentist'></Nav.Link>
+            <Nav.Link 
+                className="buttonLogoutDesign"
+                onClick={() => logoutFunction()}>
+                Logout
+              </Nav.Link> 
+            </>
+            ) : (
+            <>
+            <Nav.Link 
+                className="buttonLogoutDesign"
+                onClick={() => logoutFunction()}>
+                Logout
+              </Nav.Link>  
+            </>
+            )} 
             
-              <NavDropdown.Divider />
-              <NavDropdown.Item as={Link} to='/appointments-admin'>
-                Admin
-              </NavDropdown.Item>
-            </NavDropdown>
           </Nav>
           
         </Navbar.Collapse>
-        <div
-         
+        {/* <div
+
           className="buttonLogoutDesign"
           onClick={() => logoutFunction()}
         >
           Logout
-          </div>
+          </div> */}
       </Container>
     </Navbar>
   );
