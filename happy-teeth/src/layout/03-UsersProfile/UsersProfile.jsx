@@ -6,15 +6,15 @@ import { useNavigate } from "react-router-dom";
 import { detailsData } from "../detailsSlice";
 import { userData } from "../userSlice";
 
-
-
+import './UsersProfile.css'
 
 export const UsersProfile = () => {
 
   // const [user, setUser] = useState([]);
 
   const userDetailsRdx = useSelector(detailsData);
-console.log(userDetailsRdx)
+  const credentialsRdx = useSelector(userData)
+  console.log(userDetailsRdx)
   const navigate = useNavigate();
 
   // useEffect(() => {
@@ -23,28 +23,23 @@ console.log(userDetailsRdx)
   //   }
   // });
 
- 
-
-
-
   return (
     <div className="userDesign">
-      {/* {user.length > 0 ? (
-        <div className="cardContainer">
-            return (
-              <div
-                className="userCardDesign"
-                key={user.id}
-              >
-                {user}
-                
-              </div>
-            );
-          
-        </div>
-      ) : (
-        <Spinner animation="border" variant="primary" />
-      )} */}
+      
+      <div className="userDetailsBox">
+
+
+
+
+      </div>
+
+
+
+
+
+
+        {/* <Spinner animation="border" variant="primary" /> */}
+     
     </div>
   );
 };
