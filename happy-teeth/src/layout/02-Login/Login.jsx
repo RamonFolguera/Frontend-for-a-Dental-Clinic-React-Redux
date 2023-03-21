@@ -8,13 +8,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { login, userData } from "../userSlice";
 
 import { decodeToken } from "react-jwt";
+import { getUserDetailed } from "../detailsSlice";
 
 export const Login = () => {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();  //Instanciamos modo escritura Redux
   const credentialsRdx = useSelector(userData); //Instanciamos modo lecutura Redux
-
+  console.log(credentialsRdx)
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -67,12 +68,12 @@ export const Login = () => {
         console.log("default");
     }
   };
+  
 
   const loginFunction = () => {
     logMe(credentials)
     .then((userData) => {
           let decoded = decodeToken(userData.data.data)
-          console.log(decoded)
           let dataBackend = {
           token: userData.data.data,
           user: decoded
@@ -82,14 +83,15 @@ export const Login = () => {
         dispatch(login({credentials: dataBackend}));
         console.log( dispatch(login({credentials: dataBackend})))
       
+        // dispatch(getUserDetailed({ userDetailed: user}))
+        // console.log({ userDetailed: user})
+
       setWelcome(`Welcome back ${userData.name}`);
       setTimeout(() => {
         navigate("/");
       }, 3000);
     })
     .catch((error) => console.log(error))
-
-
   }
 
   return (

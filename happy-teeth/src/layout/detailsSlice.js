@@ -11,11 +11,17 @@ export const detailsSlice = createSlice({
                 ...state,
                 ...action.payload
             }
-        }
+        },
+        // getUserDetailed: (state, action) => {
+        //     return {
+        //         ...state,
+        //         ...action.payload
+        //     }
+        // }
     }
 })
 
-export const { addChoosen } = detailsSlice.actions;
+export const { addChoosen, getUserDetailed } = detailsSlice.actions;
 
 export const detailsData = (state) => state.details;
 
