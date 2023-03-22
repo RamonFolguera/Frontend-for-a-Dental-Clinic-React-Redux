@@ -2,8 +2,6 @@ import axios from "axios"
 
 const root = 'https://rfc-jaoa-gh-fsd-val-project4-production.up.railway.app/'
 
-
-
 export const bringUsers = async (token) => {
     let config = {
       headers: { 
@@ -41,4 +39,13 @@ export const bookAppointment = async (body, token) => {
     }
   };
   return await axios.post(`${root}appointments`, body, config )
+}
+
+export const updateAppointment = async (body, token) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+  };
+  return await axios.put(`${root}appointments`, body, config )
 }

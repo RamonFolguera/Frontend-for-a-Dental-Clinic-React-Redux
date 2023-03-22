@@ -12,17 +12,17 @@ export const NavBar = () => {
 
   const dispatch = useDispatch();
   const credentialsRdx = useSelector(userData);
-  const userDetailedRdx = useSelector(detailsData);
+  // const userDetailedRdx = useSelector(detailsData);
 
   
-  console.log(userDetailedRdx)
+ 
 
 
 
   const logoutFunction = () => {
 
     dispatch(userout({credentials: {}}));
-  console.log(dispatch(userout({credentials: {}} )))
+
 
   }
 
