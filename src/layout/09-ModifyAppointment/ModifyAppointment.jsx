@@ -1,107 +1,83 @@
-import React, { useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import { InputText } from "../../components/InputText/InputText";
-import { bookAppointment } from "../../services/apiCalls";
-import { userData } from "../userSlice";
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux';
+import { InputText } from '../../components/InputText/InputText';
+import { updateAppointment } from '../../services/apiCalls';
+import { appointmentData } from '../appointmentSlice'
+import { userData } from '../userSlice';
 
-export const CreateAppoinment = () => {
 
-    const credentialsRdx = useSelector(userData);
-console.log(credentialsRdx)
-  const [infoAppointment, setInfoAppointment] = useState({
+
+export const ModifyAppointment = () => {
+
+  const [dataAppointment, setDataAppointment] = useState({
     date: "",
-    // user_id: credentialsRdx.credentials.user.userId
-    // service_id: 1,
-    // doctor_id: 1
 
-  });
+  })
 
   const inputHandler = (e) => {
-    setInfoAppointment((prevState) => ({
+    setDataAppointment((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
   };
+  const credentialsRdx = useSelector(userData);
+  const appoimentSelectedRdx = useSelector(appointmentData)
 
-  const [valiInfoAppointment, setValiInfoAppointment] = useState({
-    dateVali: false,
-  });
-
-  const [BookAppointmentAct, setBookAppointmentAct] = useState(false);
-
-  useEffect(() => {
-    for (let empty in infoAppointment) {
-      if (infoAppointment[empty] === "") {
-        setBookAppointmentAct(false);
-        return;
-      }
-    }
-
-    for (let validated in valiInfoAppointment) {
-      if (valiInfoAppointment[validated] === false) {
-        setValiInfoAppointment(false);
-        return;
-      }
-    }
-    setBookAppointmentAct(true);
-  });
-  const checkError = (e) => {};
+  let params = appoimentSelectedRdx.choosenAppointment.id 
 
 
 
-    // if (credentialsRdx.credentials.token) {
+  
 
+  const checkError = (e) => {}
 
-  const bookApp = () => {
-    
-    bookAppointment(infoAppointment, credentialsRdx.credentials.token);
-    console.log(infoAppointment);
+  const updateApp = () => {
+    console.log("entro en submit");  
+    updateAppointment(params, dataAppointment, credentialsRdx.credentials.token);
+    console.log(dataAppointment);
+ 
   };
 
   return (
-    <div className="registerFormBox">
-      create appointment
-      <Container>
-        <Row className="mb-3">
-          <Col md={6} id="formGridDate">
-            <p>Date</p>
-            <InputText
-              //   className={
-              //     credentialsError.nameError === ""
-              //       ? "inputBasicDesign"
+    <>
+    <div>
 
-              //       : "inputBasicDesign inputErrorDesign"
-              //   }
-              type={"datetime-local"}
-              name={"date"}
-              required={true}
-              changeFunction={(e) => inputHandler(e)}
-              blurFunction={(e) => checkError(e)}
-            />
-            {/* <div>{credentialsError.nameError}</div> */}
-          </Col>
-        </Row>
-        <div
-          type="submit"
-          className={
-            BookAppointmentAct
-              ? "registerSendDeac registerSendAct text-center"
-              : "registerSendDeac text-center"
-          }
-          onClick={
-            BookAppointmentAct
-              ? () => {
-                  bookApp();
-                  <div>hola</div>;
-                }
-              : () => {}
-          }
-        >
-          Submit
-        </div>
-      </Container>
-    </div>
-  );
-};
-
+   
+  
+    {appoimentSelectedRdx.choosenAppointment.date }
+    <InputText
+                  // className={
+                  //   credentialsError.nameError === ""
+                  //     ? "inputBasicDesign"
+                      
+                  //     : "inputBasicDesign inputErrorDesign"
+                  // }
+                  type={"datetime-local"}
+                  name={"date"}
+                  
+                  required={true}
+                  changeFunction={(e) => inputHandler(e)}
+                  blurFunction={(e) => checkError(e)}
+                />
+  </div>
+    <div
+    // type="submit"
+    // className={
+    //   updateAppointmentAct
+    //     ? "registerSendDeac registerSendAct text-center"
+    //     : "registerSendDeac text-center"
+    // }
+    onClick={
+      // updateAppointmentAct
+        () => { 
+          updateApp();
+          
+        //   }
+        // : () => {}
+    }}
+  >
+    Submit
+  </div>
+</>
+  )
+}

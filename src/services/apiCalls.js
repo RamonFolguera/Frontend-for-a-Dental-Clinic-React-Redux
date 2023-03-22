@@ -41,11 +41,11 @@ export const bookAppointment = async (body, token) => {
   return await axios.post(`${root}appointments`, body, config )
 }
 
-export const updateAppointment = async (body, token) => {
+export const updateAppointment = async (id, body, token) => {
   let config = {
     headers: { 
       'Authorization': 'Bearer '+ token,  
     }
   };
-  return await axios.put(`${root}appointments`, body, config )
+  return await axios.put(`${root}appointments/${id}`, body, config )
 }

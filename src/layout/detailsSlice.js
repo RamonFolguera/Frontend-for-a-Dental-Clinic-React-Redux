@@ -12,12 +12,6 @@ export const detailsSlice = createSlice({
                 ...action.payload
             }
         },
-        // getUserDetailed: (state, action) => {
-        //     return {
-        //         ...state,
-        //         ...action.payload
-        //     }
-        // }
     }
 })
 

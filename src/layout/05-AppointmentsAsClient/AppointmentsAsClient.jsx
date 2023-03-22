@@ -3,63 +3,69 @@ import { Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { bringAppointments } from '../../services/apiCalls';
+import { addChoosenAppointment } from '../appointmentSlice';
 import { userData } from '../userSlice';
 
 export const AppointmentsAsClient = () => {
 
-  const [appointment, setAppointment] = useState([]);
+  const [appointments, setAppointments] = useState([]);
 
   const credentialsRdx = useSelector(userData)
+  console.log(credentialsRdx)
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-
   useEffect(() => {
 
-    if(appointment.length === 0){
+    if(appointments.length === 0){
       bringAppointments(credentialsRdx.credentials.token)
         .then(
           result => {
-            console.log(result)
+            console.log(result.data.data)
+            
   
-            setAppointment(result.data.data)
+            setAppointments(result.data.data)
           }
         )
         .catch(error => console.log(error))
     }
 
-  },[appointment])
+  },[appointments])
 
-  // const selected = (user) => {
-    
-  //   dispatch(addChoosen({ choosenOject: user}))
-  //   console.log({ choosenOject: user})
-  //   setTimeout(() => {
-  //     navigate('/profile');
-  //   }, 500)
-  // }
+  // const appointmentRdx = useSelector(appointmentData)
+  console.log(appointments);
+  const appointmentSelected = (appointment) => {
 
-
+    dispatch(addChoosenAppointment({ choosenAppointment: appointment }))
+    console.log({ choosenAppointment: appointment})
+    setTimeout(() => {
+      navigate('/modify-appointment');
+    }, 500)
+  
+  }
 
   return (
     <div>AppointmentsAsClient
 
-
-{ appointment.length > 0 ? 
+{ appointments.length > 0 ? 
       (<div className="cardsContainer">
         {
-          appointment.map(
-            info => {
+          appointments.map(
+            appointment => {
               return (
-          
                   <div
+                    onClick = {() => appointmentSelected(appointment)}
                     className= "userCardDesign"
-                    key={info.id}>
-                    {info.date}
-                    Doctor: {info.Doctor.User.name}
+                    key={appointment.id}>
+                      <div>{appointment.date}</div>
+                      <div> {appointment.id}</div>
+                      <div> {appointment.Service.name}</div>
+                    
+                   
+                
+                    {/* {appointment.Doctor} */}
                   </div>
-             
               )
             }
           )
