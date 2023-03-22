@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const root = 'http://localhost:3000/'
+const root = 'https://rfc-jaoa-gh-fsd-val-project4-production.up.railway.app/'
 
 
 

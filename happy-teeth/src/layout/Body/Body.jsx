@@ -11,7 +11,7 @@ import { UserAsAdmin } from '../07-UsersAsAdmin/UserAsAdmin'
 import { Route, Routes, Navigate } from 'react-router-dom'
 import { PatientsProfile } from '../08-PatientsProfile/PatientsProfile'
 import { ModifyAppointment } from '../09-ModifyAppointment/ModifyAppointment'
-import { CreateAppoinment } from '../10- CreateAppointment/CreateAppoinment'
+import { CreateAppoinment } from '../10-CreateAppointment/CreateAppoinment'
 
 
 export const Body = () => {
