@@ -1,0 +1,14 @@
+:root {
+    --blue-dark: #1D3557;
+    --blue-middle-dark:#457B9D;
+    --blue-middle-light: #A8DADC;
+    --blue-light: #F1FAEE;
+    --red: #E63946;
+}
+
+
+body {
+    /* font-family: 'Rubik', sans-serif; */
+    font-family: 'Ubuntu', sans-serif;
+
+}

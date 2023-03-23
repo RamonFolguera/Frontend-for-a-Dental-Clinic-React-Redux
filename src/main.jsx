@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Provider } from 'react-redux';
 import store from './app/store';
-
+import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 
 //REDUX PERSISTENCE....
