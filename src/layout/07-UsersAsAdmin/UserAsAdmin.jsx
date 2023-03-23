@@ -41,7 +41,7 @@ console.log(users.length)
     dispatch(addChoosen({ choosenOject: user}))
     console.log({ choosenOject: user})
     setTimeout(() => {
-      navigate('/profile');
+      navigate('/user-profile-as-admin');
     }, 500)
   }
 

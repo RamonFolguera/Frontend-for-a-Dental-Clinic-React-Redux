@@ -4,7 +4,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { detailsData } from '../../layout/detailsSlice';
 import { userData, userout } from '../../layout/userSlice';
 
 
@@ -14,16 +13,9 @@ export const NavBar = () => {
   const credentialsRdx = useSelector(userData);
   // const userDetailedRdx = useSelector(detailsData);
 
-  
- 
-
-
-
   const logoutFunction = () => {
 
     dispatch(userout({credentials: {}}));
-
-
   }
 
   return (
@@ -64,6 +56,7 @@ export const NavBar = () => {
             </>
             ) :  credentialsRdx.credentials?.user?.roleId === 1 ? (
             <>
+            <Nav.Link as={Link} to='/profile'>Profile</Nav.Link>
             <Nav.Link as={Link} to='/appointments-as-client'>Appointments</Nav.Link>
             <Nav.Link as={Link} to='/modify-appointment'>Modify Appointments</Nav.Link>
             <Nav.Link as={Link} to='/create-appointment'>Create Appointments</Nav.Link>
@@ -76,7 +69,8 @@ export const NavBar = () => {
             </>
             ) :  credentialsRdx.credentials?.user?.roleId === 3 ? (
             <>
-            <Nav.Link as={Link} to='/appointments-as-dentist'></Nav.Link>
+            
+            <Nav.Link as={Link} to='/appointments-as-dentist'>All appointments</Nav.Link>
             <Nav.Link 
                 className="buttonLogoutDesign"
                 onClick={() => logoutFunction()}>

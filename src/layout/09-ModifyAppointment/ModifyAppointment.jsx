@@ -11,7 +11,6 @@ export const ModifyAppointment = () => {
 
   const [dataAppointment, setDataAppointment] = useState({
     date: "",
-
   })
 
   const inputHandler = (e) => {
@@ -25,25 +24,19 @@ export const ModifyAppointment = () => {
 
   let params = appoimentSelectedRdx.choosenAppointment.id 
 
-
-
-  
-
   const checkError = (e) => {}
 
   const updateApp = () => {
     console.log("entro en submit");  
     updateAppointment(params, dataAppointment, credentialsRdx.credentials.token);
     console.log(dataAppointment);
- 
+
   };
 
   return (
     <>
     <div>
 
-   
-  
     {appoimentSelectedRdx.choosenAppointment.date }
     <InputText
                   // className={
