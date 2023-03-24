@@ -28,7 +28,7 @@ export const UserProfileAsAdmin = () => {
       
       <div className="userDetailsBox">
 
-
+user profile as admin in detail
 
 
       </div>

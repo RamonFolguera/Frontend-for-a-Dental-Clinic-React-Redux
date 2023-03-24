@@ -7,18 +7,17 @@ import "./UserProfile.css";
 export const UserProfile = () => {
   const userDetailsRdx = useSelector(detailsData);
 
-  console.log(userDetailsRdx.choosenOject.name);
+  console.log(userDetailsRdx.choosenObject.name);
 
   return (
     <Container className="profileMainDesign">
-      <Row></Row>
-      <Row></Row>
+      
       <div className="text-center">
         <p className="nameDesign">
      
-          {userDetailsRdx.choosenOject.name}{" "}
-          {userDetailsRdx.choosenOject.first_surname}{" "}
-          {userDetailsRdx.choosenOject.second_surname}
+          {userDetailsRdx.choosenObject.name}{" "}
+          {userDetailsRdx.choosenObject.first_surname}{" "}
+          {userDetailsRdx.choosenObject.second_surname}
         </p>
       </div>
    
@@ -26,7 +25,7 @@ export const UserProfile = () => {
           <div className="fieldDesign">
             <div className="detailDesign">Email:</div>
             <div className="detailDesign">
-              {userDetailsRdx.choosenOject.email}
+              {userDetailsRdx.choosenObject.email}
             </div>
           </div>
 
@@ -35,7 +34,7 @@ export const UserProfile = () => {
             </div>
 
             <div className="detailDesign">
-              {userDetailsRdx.choosenOject.address}
+              {userDetailsRdx.choosenObject.address}
             </div>
           </div>
 
@@ -43,7 +42,7 @@ export const UserProfile = () => {
           <div className="fieldDesign">
             <div className="detailDesign">Phone:</div>
             <div className="detailDesign">
-              {userDetailsRdx.choosenOject.phone}
+              {userDetailsRdx.choosenObject.phone}
             </div>
           </div>
         </div>

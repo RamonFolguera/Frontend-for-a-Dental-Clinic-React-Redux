@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { login, userData } from "../userSlice";
 
 import { decodeToken } from "react-jwt";
-import { getUserDetailed } from "../detailsSlice";
+
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -83,8 +83,7 @@ export const Login = () => {
         dispatch(login({credentials: dataBackend}));
         console.log( dispatch(login({credentials: dataBackend})))
       
-        // dispatch(getUserDetailed({ userDetailed: user}))
-        // console.log({ userDetailed: user})
+      
 
       setWelcome(`Welcome back ${userData.name}`);
       setTimeout(() => {

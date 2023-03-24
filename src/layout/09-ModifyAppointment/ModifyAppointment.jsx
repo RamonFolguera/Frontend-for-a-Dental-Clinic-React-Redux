@@ -5,8 +5,6 @@ import { updateAppointment } from '../../services/apiCalls';
 import { appointmentData } from '../appointmentSlice'
 import { userData } from '../userSlice';
 
-
-
 export const ModifyAppointment = () => {
 
   const [dataAppointment, setDataAppointment] = useState({
@@ -30,7 +28,6 @@ export const ModifyAppointment = () => {
     console.log("entro en submit");  
     updateAppointment(params, dataAppointment, credentialsRdx.credentials.token);
     console.log(dataAppointment);
-
   };
 
   return (

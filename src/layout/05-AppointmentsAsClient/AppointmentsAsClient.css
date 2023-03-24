@@ -1,0 +1,10 @@
+.deleteDesign {
+    background-color: var(--blue-dark);
+    height: 2em;
+    width: 5em;
+    color: white;
+}
+
+.deleteDesign:hover {
+    cursor:pointer;
+}

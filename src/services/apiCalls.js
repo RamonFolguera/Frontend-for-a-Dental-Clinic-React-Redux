@@ -59,3 +59,31 @@ export const bringAllAppointmentsAsDoctor = async (token) => {
   return await axios.get(`${root}appointments/doctor`, config);
 
 }
+
+export const bringMyAppointmentsAsDoctor = async (token) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+  };
+  return await axios.get(`${root}appointments/doctor/my`, config);
+
+}
+
+export const updateUserProfile = async (body, token) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+  };
+  return await axios.put(`${root}users/me`, body, config )
+}
+
+export const deleteMyAppointment = async (id, token) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+  };
+  return await axios.delete(`${root}appointments/${id}`, config)
+}

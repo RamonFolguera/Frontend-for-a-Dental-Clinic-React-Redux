@@ -7,9 +7,9 @@ import Spinner from 'react-bootstrap/Spinner';
 import { addChoosen } from '../detailsSlice';
 
 
-import './UserAsAdmin.css'
+import './UsersAsAdmin.css'
 
-export const UserAsAdmin = () => {
+export const UsersAsAdmin = () => {
 
 
   const [users, setUsers] = useState([]);
@@ -38,8 +38,9 @@ console.log(users.length)
 
   const selected = (user) => {
     
-    dispatch(addChoosen({ choosenOject: user}))
-    console.log({ choosenOject: user})
+    dispatch(addChoosen({ choosenObject: user}))
+    console.log(dispatch(addChoosen({ choosenObject: user})));
+    
     setTimeout(() => {
       navigate('/user-profile-as-admin');
     }, 500)
