@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Form, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { InputText } from "../../components/InputText/InputText";
 import { bookAppointment } from "../../services/apiCalls";
 import { userData } from "../userSlice";
+import "./CreateAppointment.css"
+
 
 export const CreateAppoinment = () => {
 
@@ -12,18 +14,37 @@ console.log(credentialsRdx)
   const [infoAppointment, setInfoAppointment] = useState({
     date: "",
     // user_id: credentialsRdx.credentials.user.userId
-    // service_id: 1,
+    service_id: "",
     // doctor_id: 1
 
   });
+
+
+  const [services, setServices] = useState([
+    {
+      id:1,
+      name: "Scale and polish"
+    },
+    {
+      id:2,
+      name: "White fillings"
+    },
+    {
+      id:3,
+      name: "Root canal treatment (endodontics)"
+    }
+  ])
+
 
   const inputHandler = (e) => {
     setInfoAppointment((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
+    
+ 
   };
-
+console.log(infoAppointment);
   const [valiInfoAppointment, setValiInfoAppointment] = useState({
     dateVali: false,
   });
@@ -60,19 +81,14 @@ console.log(credentialsRdx)
   };
 
   return (
-    <div className="registerFormBox">
-      create appointment
-      <Container>
-        <Row className="mb-3">
-          <Col md={6} id="formGridDate">
+    <div className="bookAppFormBody">
+      <h2>Please, enter your appointment details</h2>
+      <Container   className="formBookApp">
+        <Row className="mb-3  rowDesign">
+          <Col md={12} id="formGridDate">
             <p>Date</p>
             <InputText
-              //   className={
-              //     credentialsError.nameError === ""
-              //       ? "inputBasicDesign"
-
-              //       : "inputBasicDesign inputErrorDesign"
-              //   }
+              className="dateInputDesign"
               type={"datetime-local"}
               name={"date"}
               required={true}
@@ -82,6 +98,34 @@ console.log(credentialsRdx)
             {/* <div>{credentialsError.nameError}</div> */}
           </Col>
         </Row>
+   
+        <Row className="mb-3 w-100">
+     
+          <Col md={12} id="formGridDate">
+         
+          <Form>
+          <Form.Group className="mb-3">
+        
+          <Form.Select name={"service_id"} onChange={(e) => inputHandler(e)} aria-label="Default select example">
+          <option>Choose your treatment:</option>
+     
+            {services.map(
+            service => {
+              return (
+                <option key={service.id} value={service.id} >{service.name}</option>
+                )
+                    
+              })}
+
+         
+            </Form.Select>
+            </Form.Group>
+            </Form>
+          </Col>
+          
+        </Row>
+      
+
         <div
           type="submit"
           className={
