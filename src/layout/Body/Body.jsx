@@ -4,7 +4,6 @@ import { Home } from '../00-Home/Home'
 import { Register } from '../01-Register/Register'
 import { Login } from '../02-Login/Login'
 import { UserProfile } from '../03-UserProfile/UserProfile'
-import { Appointments } from '../04-Appointments/Appointments'
 import { AppointmentsAsClient } from '../05-AppointmentsAsClient/AppointmentsAsClient'
 import { AppointmentsAsDentist } from '../06-AppointmentsAsDentist/AppointmentsAsDentist'
 import { UsersAsAdmin } from '../07-UsersAsAdmin/UsersAsAdmin'
@@ -25,7 +24,6 @@ export const Body = () => {
         <Route path="/login" element={<Login/>}/>
         <Route path="/profile" element={<UserProfile/>}/>
         <Route path="/my-appointments-as-doctor" element={<MyAppointmentsAsDoctor/>}/>
-        <Route path="/appointments" element={<Appointments/>}/>
         <Route path="/appointments-as-client" element={<AppointmentsAsClient/>}/>
         <Route path="/appointments-as-dentist" element={<AppointmentsAsDentist/>}/>
         <Route path="/users-as-admin" element={<UsersAsAdmin/>}/>
