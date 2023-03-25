@@ -96,13 +96,7 @@ export const NavbarSecond = () => {
                 >
                  <p className="navLinkDesign"> Appointments</p>
                 </Nav.Link>
-                <Nav.Link
-                  className="navLinkDesign"
-                  as={Link}
-                  to="/modify-appointment"
-                >
-                 <p className="navLinkDesign"> Modify Appointments</p>
-                </Nav.Link>
+           
                 <Nav className="ms-auto ">
                 <Nav.Link
                   className="buttonLogoutDesign me-4"
