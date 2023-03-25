@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { Container, Row } from "react-bootstrap";
 
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { detailsData } from "../detailsSlice";
 import { userData } from "../userSlice";
@@ -10,36 +11,67 @@ import { userData } from "../userSlice";
 
 export const UserProfileAsAdmin = () => {
 
-  // const [user, setUser] = useState([]);
+
 
   const userDetailsRdx = useSelector(detailsData);
   const credentialsRdx = useSelector(userData)
+
+  const user = userDetailsRdx.choosenObject
   console.log(userDetailsRdx)
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (!credentialsRdx.credentials.token) {
-  //     navigate("/");
-  //   }
-  // });
+  useEffect(() => {
+    if (!credentialsRdx.credentials.token) {
+      navigate("/");
+    }
+  });
 
   return (
-    <div className="userDesign">
-      
-      <div className="userDetailsBox">
-
-user profile as admin in detail
-
-
-      </div>
-
-
-
-
-
-
-        {/* <Spinner animation="border" variant="primary" /> */}
+    <Container className="profileMainDesign">
+      <Row>
+      <div className="text-center">
+        <p className="nameDesign">
      
-    </div>
+          {user.name}{" "}
+          {user.first_surname}{" "}
+          {user.second_surname}
+        </p>
+      </div>
+   
+        <div className="profileContainerDesign">
+        <div className="profileDetailDesign">
+            <div className="detailDesign">Email:
+            </div>
+
+            <div className="fieldDesign">
+              {user.email}
+            </div>
+          </div>
+
+          <div className="profileDetailDesign">
+            <div className="detailDesign">Address:
+            </div>
+
+            <div className="fieldDesign">
+              {user.address}
+            </div>
+          </div>
+
+
+          <div className="profileDetailDesign">
+            <div className="detailDesign">Phone:</div>
+            <div className="fieldDesign">
+              {user.phone}
+            </div>
+          </div>
+        </div>
+        
+          </Row>
+    </Container>
+
+
+
+
+
   );
 };
