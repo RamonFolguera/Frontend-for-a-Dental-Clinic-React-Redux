@@ -1,7 +1,36 @@
-.navbarDesign {
+.navbarDesignSecond {
     background-color: var(--blue-dark);
+    height:3em;
 }
 
 .linkDesign {
     color:white;
 }
+
+.navLinkDesign {
+    color:white;
+    margin: 0 1em;
+}
+
+.navLinkDesign:hover {
+    color: var(--blue-middle-light);
+}
+
+.buttonLogoutDesign {
+
+    border-radius:0.3em;
+    background-color: var(--blue-middle-light);
+}
+.buttonLogoutTextDesign{
+    color: var(--blue-dark);
+    margin: 0;
+    font-weight: bolder;
+}
+
+.buttonLogoutDesign:hover {
+    color: black;
+    border-radius:0.3em;
+    background-color: var(--blue-light);
+    box-shadow: 0 0 2px 2px var(--blue-light);
+}
+

@@ -96,13 +96,16 @@ export const Login = () => {
   }
 
   return (
+    <>
+    {welcome === "" ? (
+      <>
     <div className="loginFormBody">
       <h1 className="greetingMsgDesign">Good to see you again</h1>
       <h2 className="loginMsgDesign">Sign in to continue</h2>
       
 <div className="loginFormContainer">
-      {welcome === "" ? (
-        <>
+      
+       
         <div>Your email</div>
           <InputTemplate
             type="email"
@@ -128,12 +131,17 @@ export const Login = () => {
           </div>
           </div>
           <Link to='/register'>Don't have an account?</Link>
+          </div>
+          </div>
         </>
       ) : (
-        <div>{welcome}</div>
+        <div className="d-flex justify-content-center align-items-center welcomeMsgContainerDesign">
+        <h1 className="welcomeMsgDesign">{welcome}</h1>
+        </div>
       )}
-    </div>
+  
     <img className="toothImgDesign" src="../../img/Diseño sin título.png" alt=""></img>
-    </div>
+   
+    </>
   );
 };

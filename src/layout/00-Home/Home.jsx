@@ -8,7 +8,7 @@ export const Home = () => {
   return (
     <>
     <Carousel>
-      <Carousel.Item interval={60000}>
+      <Carousel.Item className="carouselItemDesign" interval={60000}>
         <div className="bck-img-container">
 
 
@@ -17,9 +17,9 @@ export const Home = () => {
           src="../../img/girl-smiling.jpg"
           alt="First slide"
         /> */}
-        <Carousel.Caption>
-          <h1>Welcome To Happy Teeth</h1>
-          <p>Your local cormetic dental practice in the heart of London</p>
+        <Carousel.Caption className="carouselCaptionContainerDesign">
+          <h1 className="carouselCaptionDesign">Welcome To Happy Teeth</h1>
+          <p className="carouselCaptionDesign">Your local cormetic dental practice in the heart of London</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item interval={2000}>
@@ -27,9 +27,9 @@ export const Home = () => {
 
 
 </div>
-        <Carousel.Caption>
-          <h3>The smile you always dreamed of</h3>
-          <p>We care about what matters the most</p>
+        <Carousel.Caption className="carouselCaptionContainerDesign">
+          <h3 className="carouselCaptionDesign">The smile you always dreamed of</h3>
+          <p className="carouselCaptionDesign">We care about what matters the most</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item interval={2000}>
@@ -37,9 +37,9 @@ export const Home = () => {
 
 
 </div>
-        <Carousel.Caption>
-          <h3>Innovative dental surgery</h3>
-          <p>
+        <Carousel.Caption className="carouselCaptionContainerDesign">
+          <h3 className="carouselCaptionDesign">Innovative dental surgery</h3>
+          <p className="carouselCaptionDesign">
            We improve the life of out patients solving the most complicated cases
           </p>
         </Carousel.Caption>

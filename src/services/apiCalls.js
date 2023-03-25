@@ -11,6 +11,15 @@ export const bringUsers = async (token) => {
     return await axios.get(`${root}users/admin`, config);
 }
 
+export const bringMyUserProfile = async (token) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+  };
+  return await axios.get(`${root}users/me`, config);
+}
+
 export const bringAppointments = async (token) => {
   let config = {
     headers: { 

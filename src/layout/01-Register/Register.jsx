@@ -117,7 +117,7 @@ export const Register = () => {
           <div className="registerTitle w-100 text-center pt-3 pb-3">
             <h1>Register with Happy Teeth</h1>
           </div>
-          <div className="registerFormBox">
+          <div className="formContainerDesign">
             <Container>
               <Row className="mb-3">
                 <Col md={4} id="formGridName">

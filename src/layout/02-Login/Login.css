@@ -19,7 +19,7 @@
     transition: 1s;
 }
 
-.loginFormBody {
+.loginFormBody, .welcomeMsgContainerDesign {
     margin-top: 5em;
     position: relative;
     height: 75vh;
@@ -52,7 +52,8 @@
 
 .toothImgDesign {
     position:absolute;
-    top:15em;
+    top:30em;
     right:5em;
     height: 15em;
 }
+

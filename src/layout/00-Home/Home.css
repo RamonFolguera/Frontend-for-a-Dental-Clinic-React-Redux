@@ -30,3 +30,18 @@
     width: 80%;
 }
 
+.carouselItemDesign {
+    position:relative;
+}
+
+.carouselCaptionContainerDesign {
+    width: 30em;
+    position:absolute;
+    left: 1em;
+    top:10em;
+}
+
+.carouselCaptionDesign {
+    color: black;
+}
+
