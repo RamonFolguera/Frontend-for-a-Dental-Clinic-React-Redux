@@ -66,11 +66,10 @@ export const AppointmentsAsClient = () => {
 
   const deleteApp =  async (appointment) =>{ 
     
-    // if(appointments.length > 0) { 
+    
     await deleteMyAppointment(  appointment.id,credentialsRdx.credentials.token)
-    setAppointments(prevAppointments => prevAppointments.filter(a => a.id !== appointment.id));
+    setAppointments(prevAppointments => prevAppointments.filter(app => app.id !== appointment.id));
     // setAppointments([])
-    // }
     
 }
 

@@ -8,7 +8,6 @@ import { registerUser } from "../../services/apiCalls";
 import "./Register.css";
 
 export const Register = () => {
-
   const navigate = useNavigate();
 
   const [credentials, setCredentials] = useState({
@@ -22,7 +21,6 @@ export const Register = () => {
   });
 
   const inputHandler = (e) => {
-
     setCredentials((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
@@ -37,8 +35,7 @@ export const Register = () => {
     addressVali: false,
     emailVali: false,
     passwordVali: false,
-    
-  })
+  });
 
   const [credentialsError, setCredentialsError] = useState({
     nameError: "",
@@ -53,268 +50,231 @@ export const Register = () => {
   const [registerAct, setRegisterAct] = useState(false);
 
   const [welcome, setWelcome] = useState("");
- 
 
-useEffect(() => {
-  for(let error in credentialsError) {
-    if(credentialsError[error] != "") {
-      setRegisterAct(false);
-      return;
+  useEffect(() => {
+    for (let error in credentialsError) {
+      if (credentialsError[error] != "") {
+        setRegisterAct(false);
+        return;
+      }
     }
-  }
 
-  for(let empty in credentials){
-    if(credentials[empty] === ""){
-      setRegisterAct(false);
-      return;
+    for (let empty in credentials) {
+      if (credentials[empty] === "") {
+        setRegisterAct(false);
+        return;
+      }
     }
-  }
 
-  for(let validated in valiCredentials) {
-    if(valiCredentials[validated] === false) {
-      setRegisterAct(false);
-      return;
+    for (let validated in valiCredentials) {
+      if (valiCredentials[validated] === false) {
+        setRegisterAct(false);
+        return;
+      }
     }
-  }
-  setRegisterAct(true);
-});
+    setRegisterAct(true);
+  });
 
-const checkError = (e) => {
-  let error = "";
+  const checkError = (e) => {
+    let error = "";
 
-  let checked = validate(
-    e.target.name,
-    e.target.value,
-    e.target.required
-  );
+    let checked = validate(e.target.name, e.target.value, e.target.required);
 
-  error = checked.message;
-  console.log(error)
+    error = checked.message;
+    console.log(error);
 
-  console.log("aqui seteamos el hook de las validaciones", valiCredentials);
+    console.log("aqui seteamos el hook de las validaciones", valiCredentials);
 
-  setValiCredentials((prevState) => ({
-    ...prevState,
-    [e.target.name + "Vali"]: checked.validated,
-  }));
+    setValiCredentials((prevState) => ({
+      ...prevState,
+      [e.target.name + "Vali"]: checked.validated,
+    }));
 
-  setCredentialsError((prevState) => ({
-    ...prevState,
-    [e.target.name + "Error"]: error,
-  }));
-};
+    setCredentialsError((prevState) => ({
+      ...prevState,
+      [e.target.name + "Error"]: error,
+    }));
+  };
 
-const userRegister = () => {
+  const userRegister = () => {
+    registerUser(credentials);
 
-  registerUser(credentials)
-
-  setWelcome(`Hi. Thank you for trusting in us!`);
-  setTimeout(() => {
-    navigate("/");
-  }, 3000);
-
-}
+    setWelcome(`Hi. Thank you for trusting in us!`);
+    setTimeout(() => {
+      navigate("/");
+    }, 3000);
+  };
 
   return (
-    <div className="registerBody">
-      <div className="registerTitle w-100 text-center bg-dark text-white pt-3 pb-3">
-      <h1>Register with Happy Teeth</h1>
-      </div>
-       {welcome === "" ? (
-      <div className="registerContent">
-        
-        {/* <div className="registerInfo">
-          HAPPY TEETH. DENTAL CLINIC
-          <p>Plaza América, 5 . 46006 València america@idim.es</p>
-          <p>How to get there by public transport</p>
-          <p>Bus lines</p>
-          <p>
-            Pl. América – Conde Salvatierra: lines 1 – 4 – 10 América – Marqués
-            del Turia: lines 25 – 47 – 95
-          </p>
-          <p>Underground</p>
-          <p>Alameda or Colón stations</p>
-          <p>Parking</p>
-          <p>Paseo Alameda area (between 3pm and 4pm)</p>
-          <p>Mercado de Colón parking lot</p>
-        </div> */}
-        <div className="registerFormBox">
-          <Container>
-            <Row className="mb-3">
-              <Col md={4} id="formGridName">
-                <p>Name</p>
+  <>
+    
+    <div className="registerFormBody">
+     
+      <div className="imgSide"></div>
+      {welcome === "" ? (
+       
+        <div className="registerContent">
+          <div className="registerTitle w-100 text-center pt-3 pb-3">
+            <h1>Register with Happy Teeth</h1>
+          </div>
+          <div className="registerFormBox">
+            <Container>
+              <Row className="mb-3">
+                <Col md={4} id="formGridName">
+                  <p>Name</p>
+                  <InputText
+                    className={
+                      credentialsError.nameError === ""
+                        ? "inputsDesignCommon inputBasicDesign"
+                        : "inputsDesignCommon inputBasicDesign inputErrorDesign"
+                    }
+                    type={"text"}
+                    name={"name"}
+                    placeholder="Name"
+                    required={true}
+                    changeFunction={(e) => inputHandler(e)}
+                    blurFunction={(e) => checkError(e)}
+                  />
+                  <div>{credentialsError.nameError}</div>
+                </Col>
+
+                <Col md={4} id="formGridFirstSurname">
+                  <p>First Surname</p>
+                  <InputText
+                    className={
+                      credentialsError.first_surnameError === ""
+                        ? "inputsDesignCommon inputBasicDesign"
+                        : "inputsDesignCommon inputBasicDesign inputErrorDesign"
+                    }
+                    type={"text"}
+                    name={"first_surname"}
+                    required={true}
+                    placeholder="First Surname"
+                    changeFunction={(e) => inputHandler(e)}
+                    blurFunction={(e) => checkError(e)}
+                  />
+                  <div>{credentialsError.first_surnameError}</div>
+                </Col>
+
+                <Col md={4} id="formGridSecondSurname">
+                  <p>Second Surname</p>
+                  <InputText
+                    className={
+                      credentialsError.second_surnameError === ""
+                        ? "inputsDesignCommon inputBasicDesign"
+                        : "inputsDesignCommon inputBasicDesign inputErrorDesign"
+                    }
+                    type={"text"}
+                    name={"second_surname"}
+                    required={true}
+                    placeholder="Second Surname"
+                    changeFunction={(e) => inputHandler(e)}
+                    blurFunction={(e) => checkError(e)}
+                  />
+                  <div>{credentialsError.second_surnameError}</div>
+                </Col>
+              </Row>
+              <Row className="mb-3">
+               
+                <Col id="formGridEmail">
+                  <p>Email address</p>
+                  <InputText
+                    className={
+                      credentialsError.emailError === ""
+                        ? "inputsDesignCommon inputBasicDesign inputEmailDesign"
+                        : "inputsDesignCommon inputBasicDesign inputErrorDesign inputEmailDesign"
+                    }
+                    type={"email"}
+                    name={"email"}
+                    required={true}
+                    placeholder="Email"
+                    changeFunction={(e) => inputHandler(e)}
+                    blurFunction={(e) => checkError(e)}
+                  />
+                  <div>{credentialsError.emailError}</div>
+                </Col>
+
+                <Col id="formGridPassword">
+                  <p>Password</p>
+                  <InputText
+                    className={
+                      credentialsError.passwordError === ""
+                        ? "inputsDesignCommon inputBasicDesign inputPasswordDesign"
+                        : "inputsDesignCommon inputBasicDesign inputErrorDesign inputPasswordDesign"
+                    }
+                    type={"password"}
+                    name={"password"}
+                    required={true}
+                    placeholder="Password"
+                    changeFunction={(e) => inputHandler(e)}
+                    blurFunction={(e) => checkError(e)}
+                  />
+                  <div>{credentialsError.passwordError}</div>
+                </Col>
+              </Row>
+              <Row>
+              <Col  id="formGridAddress">
+                <p>Address</p>
                 <InputText
                   className={
-                    credentialsError.nameError === ""
-                      ? "inputBasicDesign"
-                      
-                      : "inputBasicDesign inputErrorDesign"
+                    credentialsError.addressError === ""
+                      ? "inputsDesignCommon inputBasicDesign inputAddressDesign"
+                      : "inputsDesignCommon inputBasicDesign inputErrorDesign inputAddressDesign"
                   }
                   type={"text"}
-                  name={"name"}
-                  placeholder="Name"
+                  name={"address"}
                   required={true}
+                  placeholder="Address"
                   changeFunction={(e) => inputHandler(e)}
                   blurFunction={(e) => checkError(e)}
                 />
-                <div>{credentialsError.nameError}</div>
-
+                <div>{credentialsError.addressError}</div>
               </Col>
-
-              <Col md={4} id="formGridFirstSurname">
-                <p>First Surname</p>
-                <InputText
-                  className={
-                    credentialsError.first_surnameError === ""
-                      ? "inputBasicDesign"
-                      : "inputBasicDesign inputErrorDesign"
-                  }
-                  type={"text"}
-                  name={"first_surname"}
-                  required={true}
-                  placeholder="First Surname"
-                  changeFunction={(e) => inputHandler(e)}
-                  blurFunction={(e) => checkError(e)}
-                />
-                <div>{credentialsError.first_surnameError}</div>
-              </Col>
-
-              <Col md={4} id="formGridSecondSurname">
-                <p>Second Surname</p>
-                <InputText
-                  className={
-                    credentialsError.second_surnameError === ""
-                      ? "inputBasicDesign"
-                      : "inputBasicDesign inputErrorDesign"
-                  }
-                  type={"text"}
-                  name={"second_surname"}
-                  required={true}
-                  placeholder="Second Surname"
-                  changeFunction={(e) => inputHandler(e)}
-                  blurFunction={(e) => checkError(e)}
-                />
-                <div>{credentialsError.second_surnameError}</div>
-              </Col>
-
-              
-            </Row>
-            <Row className="mb-3">
-            <Col md={4} id="formGridPhone">
-                <p>Phone number</p>
-                <InputText
-                  className={
-                    credentialsError.phoneError === ""
-                      ? "inputBasicDesign"
-                      : "inputBasicDesign inputErrorDesign"
-                  }
-                  type={"text"}
-                  name={"phone"}
-                  required={true}
-                  placeholder="Phone number"
-                  changeFunction={(e) => inputHandler(e)}
-                  blurFunction={(e) => checkError(e)}
-                />
-                <div>{credentialsError.phoneError}</div>
-              </Col>
-              <Col md={4} id="formGridEmail">
-                <p>Email address</p>
-                <InputText 
+              <Col  id="formGridPhone">
+                  <p>Phone number</p>
+                  <InputText
+                    className={
+                      credentialsError.phoneError === ""
+                        ? "inputsDesignCommon inputBasicDesign"
+                        : "inputsDesignCommon inputBasicDesign inputErrorDesign"
+                    }
+                    type={"text"}
+                    name={"phone"}
+                    required={true}
+                    placeholder="Phone number"
+                    changeFunction={(e) => inputHandler(e)}
+                    blurFunction={(e) => checkError(e)}
+                  />
+                  <div>{credentialsError.phoneError}</div>
+                </Col>
+                </Row>
+                <Row className="d-flex justify-content-center">
+              <div
+                type="submit"
                 className={
-                  credentialsError.emailError === ""
-                    ? "inputBasicDesign inputEmailDesign"
-                    : "inputBasicDesign inputErrorDesign inputEmailDesign"
+                  registerAct
+                    ? "mt-3 buttonDesign registerSendAct text-center"
+                    : "mt-3 buttonDesign text-center"
                 }
-                type={"email"}
-                name={"email"}
-                required={true}
-                placeholder="Email"
-                changeFunction={(e) => inputHandler(e)}
-                blurFunction={(e) => checkError(e)}
-              />
-              <div>{credentialsError.emailError}</div>
-              </Col>
-
-              <Col md={4} id="formGridPassword">
-                <p>Password</p>
-                <InputText 
-                className={
-                  credentialsError.passwordError === ""
-                    ? "inputBasicDesign inputPasswordDesign"
-                    : "inputBasicDesign inputErrorDesign inputPasswordDesign"
+                onClick={
+                  registerAct
+                    ? () => {
+                        userRegister();
+                        <div>{welcome}</div>;
+                      }
+                    : () => {}
                 }
-                type={"password"}
-                name={"password"}
-                required={true}
-                placeholder="Password"
-                changeFunction={(e) => inputHandler(e)}
-                blurFunction={(e) => checkError(e)}
-              />
-              <div>{credentialsError.passwordError}</div>
-              </Col>
-            </Row>
-
-            <Col md={3} id="formGridAddress">
-              <p>Address</p>
-              <InputText 
-                className={
-                credentialsError.addressError === ""
-                  ? "inputBasicDesign inputAddressDesign"
-                  : "inputBasicDesign inputErrorDesign inputAddressDesign"
-              }
-              type={"text"}
-              name={"address"}
-              required={true}
-              placeholder="Address"
-              changeFunction={(e) => inputHandler(e)}
-              blurFunction={(e) => checkError(e)}
-            />
-            <div>{credentialsError.addressError}</div>
-            </Col>
-
-            {/* <Col md={3}
-              className="formsRegulations"
-              controlId="formGridRegulations"
-            >
-              <p className="regulationsLabel">
-                To comply with data protection regulations (2018), we are unable
-                to store and use your information unless you give us your
-                permission. Please select Yes to allow this. View our data
-                protection policy for details.*
-              </p>
-              <Form.Select
-                className="regulationsInput"
-                defaultValue="Please select"
               >
-                <option>Please select</option>
-                <option>Yes</option>
-                <option>No</option>
-              </Form.Select>
-            </Col> */}
-
-
-            <div 
-              type="submit"
-              className={
-                registerAct ? "registerSendDeac registerSendAct text-center" : "registerSendDeac text-center"
-              }
-              onClick={
-                registerAct
-                  ? () => {
-                    userRegister();
-                    <div>{welcome}</div>
-                  }
-                  : () => {}
-              }
-              >
-              Submit
-            </div>
-          </Container>
+                Submit
+              </div>
+              </Row>
+            </Container>
+          </div>
         </div>
-      </div>
-         ) : (
-          <div>{welcome}</div>
-        )}
+      ) : (
+        <div>{welcome}</div>
+      )}
     </div>
+    </>
   );
 };

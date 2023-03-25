@@ -28,6 +28,7 @@ export const ModifyAppointment = () => {
     console.log("entro en submit");  
     updateAppointment(params, dataAppointment, credentialsRdx.credentials.token);
     console.log(dataAppointment);
+
   };
 
   return (

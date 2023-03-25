@@ -3,6 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { InputText } from "../../components/InputText/InputText";
 import { validate } from "../../helpers/useful";
+import { updateUserProfile } from "../../services/apiCalls";
 import { userData } from "../userSlice";
 
 export const UpdateUserAsClient = () => {

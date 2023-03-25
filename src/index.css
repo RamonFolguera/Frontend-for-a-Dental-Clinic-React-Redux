@@ -11,3 +11,28 @@ body {
     font-family: 'Ubuntu', sans-serif;
 
 }
+
+.buttonDesign {
+    height: 2em;
+    width: 7em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--blue-dark);
+    color: white;
+    border-radius: 0.5em;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.buttonDesign:hover {
+    box-shadow: 0 0 3px 3px rgb(137, 154, 222);
+    border: 0.05em solid var(--blue-dark);
+    background-color: rgb(151, 151, 193);
+    transition: 1s;
+}
+
+.inputsDesignCommon:hover {
+    box-shadow: 0 0 3px 3px rgb(137, 154, 222);
+    transition: 1s;
+}

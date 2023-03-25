@@ -1,51 +1,41 @@
 
-.registerBody {
-    display: flex;
+.registerFormBody {
+    position: relative;
+    height: 75vh;
+    width: 100vw;
+    display:flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
    
 }
 
 .registerContent {
-    margin: 3em 0;
-    width: 75%;
+    background-image: url(../../img/tooth-tools.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height:100%;
+    width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     
 }
 
 .registerFormBox {
+   
     padding: 2em;
-    width: 90%;
+    width: 50%;
     margin-left:5em;
     border: 0.05em solid blue;
     border-radius: 1em;
     background-color: rgb(242, 242, 253);
 }
 
-/* .formsRegulations {
-    display: flex;
-    
-}
-
-.regulationsLabel {
-    font-size: 0.7em;
-}
-
-.regulationsInput {
-    height: 2.5em;
-} */
-
 .inputBasicDesign {
     width: 100%;
 }
 
-.inputBasicDesign:hover {
-    box-shadow: 1px 1px 1px 1px blue;    
-    background-color: rgb(152, 194, 250);
-    width: 100%;
-}
 
 
 .inputErrorDesign {
@@ -66,3 +56,10 @@ color: white
     
 }
 
+/* .imgSide {
+    background-image: url(../../img/tooth-tools.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+    width:50%;
+} */
