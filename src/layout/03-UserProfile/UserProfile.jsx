@@ -28,11 +28,6 @@ export const UserProfile = () => {
   },[user])
 
 
-
-
-
-
-
   return (
     <Container className="profileMainDesign">
       

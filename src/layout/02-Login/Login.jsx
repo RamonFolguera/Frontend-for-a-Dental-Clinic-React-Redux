@@ -75,6 +75,7 @@ export const Login = () => {
   
 
   const loginFunction = () => {
+    console.log("entro");
     logMe(credentials)
     .then((userData) => {
           let decoded = decodeToken(userData.data.data)
@@ -125,8 +126,8 @@ export const Login = () => {
             validateFunction={(e) => inputValidate(e)}
           />
           <div>{credentialsError.passwordError}</div>
-          <div className="buttonContainerDesign d-flex justify-content-center">
-          <div className="buttonLoginDesign" onClick={() => loginFunction()}>
+          <div className=" d-flex justify-content-center">
+          <div className="" onClick={() => loginFunction()}>
             Log me
           </div>
           </div>

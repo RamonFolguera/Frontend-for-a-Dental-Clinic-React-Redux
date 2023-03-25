@@ -2,14 +2,7 @@
 
 
 
-.cardsContainer {
-    border: 1px solid black;
-    
-    width: 100vw;
-    display:flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+
 
 .userCardDesign {
     margin: 1em;
