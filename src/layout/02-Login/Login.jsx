@@ -16,10 +16,6 @@ export const Login = () => {
   const dispatch = useDispatch();  //Instanciamos modo escritura Redux
   const credentialsRdx = useSelector(userData); //Instanciamos modo lecutura Redux
   
-
-
-
-
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -127,7 +123,7 @@ export const Login = () => {
           />
           <div>{credentialsError.passwordError}</div>
           <div className=" d-flex justify-content-center">
-          <div className="" onClick={() => loginFunction()}>
+          <div className="buttonDesign" onClick={() => loginFunction()}>
             Log me
           </div>
           </div>

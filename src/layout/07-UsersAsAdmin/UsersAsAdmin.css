@@ -1,18 +1,7 @@
 
-
-
-
-
-
-.userCardDesign {
-    margin: 1em;
-    height: 10em;
-    width: 30em;
-    background-color: rgb(203, 203, 203);
-    border: 0.05em grey solid;
+.seeMoreDesign {
+    padding-top: 6em;
 }
 
-.userCardDesign:hover{
-    background-color: rgb(252, 252, 252);
-    cursor: pointer;
-}
+
+

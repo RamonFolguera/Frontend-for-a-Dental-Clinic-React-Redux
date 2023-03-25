@@ -36,8 +36,6 @@
     width: 100%;
 }
 
-
-
 .inputErrorDesign {
 border: 0.1em solid red;
 background-color: rgb(252, 205, 205);
@@ -48,7 +46,6 @@ border-radius: 0.5em;
 border: 0.1em solid blue;
 background-color: blue;
 color: white
-
 }
 
 .registerSendDeac:hover {
@@ -56,10 +53,3 @@ color: white
     
 }
 
-/* .imgSide {
-    background-image: url(../../img/tooth-tools.jpg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 100%;
-    width:50%;
-} */

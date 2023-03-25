@@ -2,10 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  bringAppointments,
-  deleteMyAppointment,
-} from "../../services/apiCalls";
+import { bringAppointments, deleteMyAppointment } from "../../services/apiCalls";
 import { addChoosenAppointment, appointmentData } from "../appointmentSlice";
 import { userData } from "../userSlice";
 import "./AppointmentsAsClient.css";
@@ -28,7 +25,7 @@ export const AppointmentsAsClient = () => {
       setTimeout(() => {
         bringAppointments(credentialsRdx.credentials.token)
           .then((result) => {
-            console.log(result.data.data);
+
             setLoading(false);
 
             if (result.data.data.length === 0) {
@@ -37,11 +34,10 @@ export const AppointmentsAsClient = () => {
             setAppointments(result.data.data);
           })
           .catch((error) => console.log(error));
-      }, 1000);
+      }, 2000);
     }
   }, [appointments]);
 
-  // const appointmentRdx = useSelector(appointmentData)
   console.log(appointments);
   const appointmentSelected = (appointment) => {
     dispatch(addChoosenAppointment({ choosenAppointment: appointment }));
@@ -56,14 +52,15 @@ export const AppointmentsAsClient = () => {
     setAppointments((prevAppointments) =>
       prevAppointments.filter((app) => app.id !== appointment.id)
     );
-    // setAppointments([])
+  
   };
 
   if (loading) {
     return (
-      <div className="spinnerDesign d-flex justify-content-center align-items-center">
-        <Spinner animation="border" variant="primary" />
-        <h4>Loading...</h4>
+      <div className="spinnerDesign d-flex justify-content-center align-items-center flex-column">
+        <div> <Spinner animation="border" variant="primary" /></div>
+        <div>   <h4>Loading...</h4></div>
+
       </div>
     );
   } else if (appointments.length > 0) {

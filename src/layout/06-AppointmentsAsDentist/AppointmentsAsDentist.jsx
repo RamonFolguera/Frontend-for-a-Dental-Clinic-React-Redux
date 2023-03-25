@@ -1,81 +1,105 @@
-import React, { useEffect, useState } from 'react'
-import { Spinner } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { bringAllAppointmentsAsDoctor } from '../../services/apiCalls';
-import { userData } from '../userSlice';
+import React, { useEffect, useState } from "react";
+import { Spinner } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { bringAllAppointmentsAsDoctor } from "../../services/apiCalls";
+import { userData } from "../userSlice";
+import './AppointmentsAsDentist.css'
 
 export const AppointmentsAsDentist = () => {
+  const [allAppointments, setAllAppointments] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    const [allAppointments, setAllAppointments] = useState([]);
-
-  const credentialsRdx = useSelector(userData)
-  console.log(credentialsRdx)
-
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const credentialsRdx = useSelector(userData);
 
   useEffect(() => {
-
-    if(allAppointments.length === 0){
+    if (allAppointments.length === 0) {
       bringAllAppointmentsAsDoctor(credentialsRdx.credentials.token)
-        .then(
-          result => {
-            console.log(result.data.data)
-            
-  
-            setAllAppointments(result.data.data)
+        .then((result) => {
+          setLoading(false);
+          if (result.data.data.length === 0) {
+            return;
           }
-        )
-        .catch(error => console.log(error))
+          console.log(result);
+          setAllAppointments(result.data.data);
+        })
+        .catch((error) => console.log(error));
     }
+  }, [allAppointments]);
 
-  },[allAppointments])
-
-  // const appointmentRdx = useSelector(appointmentData)
-  console.log(allAppointments);
-  // const appointmentSelected = (appointment) => {
-
-  //   dispatch(addChoosenAppointment({ choosenAppointment: appointment }))
-  //   console.log({ choosenAppointment: appointment})
-  //   setTimeout(() => {
-  //     navigate('/modify-appointment');
-  //   }, 500)
-  
-  // }
-
-  return (
-
-    <div>AppointmentsAsClient
-
-      { allAppointments.length > 0 ? 
-            (<div className="cardsContainer">
-              {
-                allAppointments.map(
-                  appointment => {
-                    return (
-                        <div
-                          className= "userCardDesign"
-                          key={appointment.id}>
-                            <div>{appointment.date}</div>
-                            <div> {appointment.id}</div>
-                            <div> {appointment.Service.name}</div>
-                        </div>
-                    )
-                  }
-                )
-
-              }  
-              </div>)
-              
-              :
-
-              ( <Spinner animation="border" variant="primary" />)
-            
-      }
-    </div>
-  )
-}
-
-  
-
+  if (loading) {
+    return (
+      <div className="spinnerDesign d-flex justify-content-center align-items-center flex-column">
+        <div>
+          {" "}
+          <Spinner animation="border" variant="primary" />
+        </div>
+        <div>
+          {" "}
+          <h4>Loading...</h4>
+        </div>
+      </div>
+    );
+  } else if (allAppointments.length > 0) {
+    return (
+      <div className="d-flex justify-content-center flex-column align-items-center">
+        <h2>All appointments registered in our practise:</h2>
+        <div className="cardsContainer">
+          {allAppointments.map((appointment) => {
+            return (
+              <div className="appointmentCardDesign" key={appointment.id}>
+                <div className="d-flex flex-column">
+                  <p>
+                    <span className="pe-4 nameFieldDesign">Date:</span>
+                    {appointment.date}
+                  </p>
+                  <p>
+                    <span className="pe-4 nameFieldDesign">Treatment:</span>{" "}
+                    {appointment.Service.name}
+                  </p>
+                  <p>
+                  <span className="pe-4 nameFieldDesign">Doctor name:</span>{" "}
+                    {appointment.Doctor.User.name}{" "}
+                    {appointment.Doctor.User.first_surname}{" "}
+                    {appointment.Doctor.User.second_surname}
+                  </p>
+                  <p>  
+                  <span className="pe-4 nameFieldDesign">Patient name:</span>{" "}
+                    {appointment.User.name}{" "}
+                    {appointment.User.first_surname}{" "}
+                    {appointment.User.second_surname}
+                  </p>
+                  <p>  
+                  <span className="pe-4 nameFieldDesign">Patient phone:</span>{" "}
+                    {appointment.User.phone}
+                  </p>
+                  <p>  
+                  <span className="pe-4 nameFieldDesign">Patient email:</span>{" "}
+                    {appointment.User.email}
+                  </p>
+                  <p>
+                  <span className="pe-4 nameFieldDesign">Comments:</span>{" "}
+                    {appointment.comments}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className="noAppoDesign d-flex justify-content-center flex-column align-items-center">
+        <h2 className="mb-4">Your appointments:</h2>
+        <h4>You don't have any appointments.</h4>
+        <div className="mt-5">
+          <Link className="btnNoAppBookDesign me-4" to="/create-appointment">
+            <p className="text-white buttonLogoutTextDesign">
+              Book Appointment
+            </p>
+          </Link>
+        </div>
+      </div>
+    );
+  }
+};
