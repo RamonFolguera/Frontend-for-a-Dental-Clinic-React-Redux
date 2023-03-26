@@ -14,24 +14,24 @@ export const FooterTemplate = () => {
             <h5 className="text-uppercase">QUICK LINKS</h5>
             <ul className="list-unstyled mb-0">
               <li>
-                <a href="#!" className="text-dark">
+                <p className="text-dark">
                   FAQs
-                </a>
+                </p>
               </li>
               <li>
-                <a href="#!" className="text-dark">
+                <p className="text-dark">
                   Privacy & Data Policy
-                </a>
+                </p>
               </li>
               <li>
-                <a href="#!" className="text-dark">
+                <p className="text-dark">
                 Vulnerability Disclosure Policy
-                </a>
+                </p>
               </li>
               <li>
-                <a href="#!" className="text-dark">
+                <p className="text-dark">
                 Sitemap
-                </a>
+                </p>
               </li>
             </ul>
           </div>
@@ -42,7 +42,7 @@ export const FooterTemplate = () => {
               <li>
                 
                 Address:
-                5 County Place, Paisley, PA1 1BN
+                5 Abbey Road, London, W1 1BN
                 
               </li>
               <li>
@@ -76,19 +76,19 @@ export const FooterTemplate = () => {
           
                     <ul className="list-unstyled mb-0 d-flex justify-content-between  align-items-stretch flex-row">
                         <li>
-                            <a className='text-black' href="https://www.instagram.com/gruposaona/"><Instagram /> </a>
+                            <a className='text-black' ><Instagram /> </a>
                         </li>
                         <li>
-                            <a className='text-black' href="https://www.facebook.com/gruposaona"><Facebook /></a>
+                            <a className='text-black' ><Facebook /></a>
                         </li>
                         <li>
-                            <a className='text-black' href="https://twitter.com/gruposaona"><Twitter /></a>
+                            <a className='text-black' ><Twitter /></a>
                         </li>
                         <li>
-                            <a className='text-black' href="https://www.youtube.com/channel/UCGLdWRKW_jU9vZS8wz8Ti6g/featured"><Youtube /></a>
+                            <a className='text-black' ><Youtube /></a>
                         </li>
                         <li>
-                            <a className='text-black' href="https://www.linkedin.com/company/grupo-saona"><Linkedin /></a>
+                            <a className='text-black' href="https://www.linkedin.com/in/ram%C3%B3n-folguera-0ab32776/"><Linkedin /></a>
                         </li>
                     </ul>
            

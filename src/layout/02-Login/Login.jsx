@@ -117,7 +117,7 @@ export const Login = () => {
           <InputTemplate
             type="password"
             name="password"
-            placeholder="e.g. mypassword123"
+            placeholder="e.g. 123456"
             changeFunction={(e) => inputHandler(e)}
             validateFunction={(e) => inputValidate(e)}
           />

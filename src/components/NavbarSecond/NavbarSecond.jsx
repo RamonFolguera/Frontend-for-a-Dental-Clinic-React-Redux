@@ -24,7 +24,7 @@ export const NavbarSecond = () => {
     <Navbar expand="lg" className="navbarDesignSecond">
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse className="navbar-collapseDesign" id="basic-navbar-nav">
       
             {!credentialsRdx.credentials?.user?.roleId ? (
               <>
@@ -37,8 +37,8 @@ export const NavbarSecond = () => {
                 </Nav.Link>
                 </Nav>
                 <Nav className="ms-auto ">
-                <Nav.Link className="buttonLogoutDesign" as={Link} to="/login">
-                  <p className="buttonLogoutTextDesign">Login</p>
+                <Nav.Link className="navLinkDesign text-white" as={Link} to="/login">
+                  <p className="navLinkDesign">Login</p>
                 </Nav.Link>
                 </Nav>
               </>
@@ -69,10 +69,10 @@ export const NavbarSecond = () => {
                 </Nav>
                 <Nav className="ms-auto ">
                   <Nav.Link
-                    className="buttonLogoutDesign"
+                    className="navLinkDesign"
                     onClick={() => logoutFunction()}
                   >
-                   <p className="buttonLogoutTextDesign"> Logout</p>
+                   <p className="navLinkDesign"> Logout</p>
                   </Nav.Link>
                 </Nav>
               </>
@@ -99,19 +99,19 @@ export const NavbarSecond = () => {
            
                 <Nav className="ms-auto ">
                 <Nav.Link
-                  className="buttonLogoutDesign me-4"
+                  className="navLinkDesign me-4"
                   as={Link}
                   to="/create-appointment"
                 >
-                 <p className="buttonLogoutTextDesign">Book Appointment</p>
+                 <p className="navLinkDesign">Book Appointment</p>
                 </Nav.Link>
 
                
                   <Nav.Link
-                    className="buttonLogoutDesign"
+                    className="navLinkDesign"
                     onClick={() => logoutFunction()}
                   >
-                   <p className="buttonLogoutTextDesign"> Logout</p>
+                   <p className="navLinkDesign"> Logout</p>
                   </Nav.Link>
                 </Nav>
               </>
@@ -133,20 +133,20 @@ export const NavbarSecond = () => {
                 </Nav.Link>
                 <Nav className="ms-auto ">
                   <Nav.Link
-                    className="buttonLogoutDesign"
+                    className="navLinkDesign"
                     onClick={() => logoutFunction()}
                   >
-                   <p className="buttonLogoutTextDesign"> Logout</p>
+                   <p className="navLinkDesign"> Logout</p>
                   </Nav.Link>
                 </Nav>
               </>
             ) : (
               <>
                 <Nav.Link
-                  className="buttonLogoutDesign"
+                  className="navLinkDesign"
                   onClick={() => logoutFunction()}
                 >
-                 <p className="buttonLogoutTextDesign"> Logout</p>
+                 <p className="navLinkDesign"> Logout</p>
                 </Nav.Link>
               </>
             )}

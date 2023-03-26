@@ -9,14 +9,14 @@ export const validate = (name, data, required) => {
       case "lastName":
       case "first_surname":
       case "second_surname":
-        //Aqui evaluaremos strings que NO pueden tener números
+        
   
         if (data === "" && required === true) {
   
           
           return {message: "Please fill the field", validated: false};
   
-          //Evaluamos mediante la expresión regular 
+      
         } else if (!/[a-z]/gi.test(data)) {
           return {message: "Invalid name format", validated: false};
         }
@@ -50,9 +50,9 @@ export const validate = (name, data, required) => {
         if (data === "" && required === true) {
           return {message: "Please fill the field", validated: false};
         } else if (
-          /\+?\(?\d{2,4}\)?[\d\s-]{12,}/.test(data)
+          /^[0-9]{3}?[-\s\.]?[0-9]{3}?[-\s\.]?[0-9]{3}$/.test(data)
           ) {
-          return {message: "Invalid mobile format", validated: false};
+          return {message: "Invalid phone number format", validated: false};
         }
 
      

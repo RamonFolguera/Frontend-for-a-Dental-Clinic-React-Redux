@@ -99,7 +99,7 @@ export const Register = () => {
     setWelcome(`Welcome to Happy Teeth. Thank you for trusting in us!`);
     setTimeout(() => {
       navigate("/");
-    }, 3000);
+    }, 500);
   };
 
   return (
@@ -200,7 +200,7 @@ export const Register = () => {
                     type={"password"}
                     name={"password"}
                     required={true}
-                    placeholder="Password"
+                    placeholder="e.g. 123456789"
                     changeFunction={(e) => inputHandler(e)}
                     blurFunction={(e) => checkError(e)}
                   />
@@ -236,7 +236,7 @@ export const Register = () => {
                     type={"text"}
                     name={"phone"}
                     required={true}
-                    placeholder="Phone number"
+                    placeholder="e.g. 666666666"
                     changeFunction={(e) => inputHandler(e)}
                     blurFunction={(e) => checkError(e)}
                   />

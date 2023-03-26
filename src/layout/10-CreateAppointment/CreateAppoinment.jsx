@@ -11,9 +11,8 @@ export const CreateAppoinment = () => {
   console.log(credentialsRdx);
   const [infoAppointment, setInfoAppointment] = useState({
     date: "",
-    // user_id: credentialsRdx.credentials.user.userId
     service_id: "",
-    // doctor_id: 1
+    doctor_id: ""
   });
 
   const [services, setServices] = useState([
@@ -28,6 +27,17 @@ export const CreateAppoinment = () => {
     {
       id: 3,
       name: "Root canal treatment (endodontics)",
+    },
+  ]);
+
+  const [doctors, setDoctors] = useState([
+    {
+      id: 1,
+      name: "Ramón Folguera Carbonell",
+    },
+    {
+      id: 2,
+      name: "Amparo Martínez López",
     },
   ]);
 
@@ -66,7 +76,9 @@ export const CreateAppoinment = () => {
 
   const bookApp = () => {
     bookAppointment(infoAppointment, credentialsRdx.credentials.token);
-    console.log(infoAppointment);
+    setTimeout(() => {
+      navigate("/appointments-as-client");
+    }, 500);
   };
 
   return (
@@ -105,6 +117,25 @@ export const CreateAppoinment = () => {
                     return (
                       <option key={service.id} value={service.id}>
                         {service.name}
+                      </option>
+                    );
+                  })}
+                </Form.Select>
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <p className="pe-4 nameFieldDesign">Doctor:</p>
+                <Form.Select
+                  name={"doctor_id"}
+                  onChange={(e) => inputHandler(e)}
+                  aria-label="Default select example"
+                >
+                  
+                  <option>Choose your doctor:</option>
+
+                  {doctors.map((doctor) => {
+                    return (
+                      <option key={doctor.id} value={doctor.id}>
+                        {doctor.name}
                       </option>
                     );
                   })}

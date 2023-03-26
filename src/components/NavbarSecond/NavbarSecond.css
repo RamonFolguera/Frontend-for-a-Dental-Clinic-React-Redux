@@ -34,3 +34,8 @@
     box-shadow: 0 0 2px 2px var(--blue-light);
 }
 
+.navbar-collapseDesign {
+    background-color: var(--blue-dark);
+    border-radius: 1em;
+
+}

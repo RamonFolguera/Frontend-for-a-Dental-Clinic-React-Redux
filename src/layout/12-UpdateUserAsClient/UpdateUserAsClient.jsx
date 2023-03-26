@@ -102,34 +102,35 @@ const checkError = (e) => {
   const modifyUserProfile = () => {
     console.log("entro en submit");  
     updateUserProfile(credentials, credentialsRdx.credentials.token);
-    console.log(credentials);
+  
+    setTimeout(() => {
+      navigate("/Profile");
+    }, 3000);
 
   };
 
 
   return (
 
-    <>
+    <div className="d-flex justify-content-center defaultPageHeight">
+    <div className="registerContent">
+    <div className="w-100 text-center pt-3 pb-3">
+            <h1>Update your profile</h1>
+          </div>
+   
+          <div className="registerContainerDesign mb-5">
 
-    <div className="registerBody">
-      <div className="registerTitle w-100 text-center bg-dark text-white pt-3 pb-3">
-      <h1>Register with Happy Teeth</h1>
-      </div>
-       {/* {welcome === "" ? ( */}
-      <div className="registerContent">
-
-        <div className="registerFormBox">
+     
           <Container>
             <Row className="mb-3">
               <Col md={4} id="formGridName">
-                <p>Name</p>
+              <p className="mb-0 mt-3">Name</p>
                 <InputText
                   className={
                     credentialsError.nameError === ""
-                      ? "inputBasicDesign"
-                      
-                      : "inputBasicDesign inputErrorDesign"
-                  }
+                    ? "inputsDesignCommon inputBasicDesign"
+                    : "inputsDesignCommon inputBasicDesign inputErrorDesign"
+                }
                   type={"text"}
                   name={"name"}
                   placeholder="Name"
@@ -142,13 +143,13 @@ const checkError = (e) => {
               </Col>
 
               <Col md={4} id="formGridFirstSurname">
-                <p>First Surname</p>
+              <p className="mb-0 mt-3">First Surname</p>
                 <InputText
                   className={
                     credentialsError.first_surnameError === ""
-                      ? "inputBasicDesign"
-                      : "inputBasicDesign inputErrorDesign"
-                  }
+                    ? "inputsDesignCommon inputBasicDesign"
+                    : "inputsDesignCommon inputBasicDesign inputErrorDesign"
+                }
                   type={"text"}
                   name={"first_surname"}
                   required={true}
@@ -160,13 +161,13 @@ const checkError = (e) => {
               </Col>
 
               <Col md={4} id="formGridSecondSurname">
-                <p>Second Surname</p>
+              <p className="mb-0 mt-3">Second Surname</p>
                 <InputText
-                  className={
-                    credentialsError.second_surnameError === ""
-                      ? "inputBasicDesign"
-                      : "inputBasicDesign inputErrorDesign"
-                  }
+               className={
+                credentialsError.second_surnameError === ""
+                  ? "inputsDesignCommon inputBasicDesign"
+                  : "inputsDesignCommon inputBasicDesign inputErrorDesign"
+              }
                   type={"text"}
                   name={"second_surname"}
                   required={true}
@@ -180,31 +181,14 @@ const checkError = (e) => {
               
             </Row>
             <Row className="mb-3">
-            <Col md={4} id="formGridPhone">
-                <p>Phone number</p>
-                <InputText
-                  className={
-                    credentialsError.phoneError === ""
-                      ? "inputBasicDesign"
-                      : "inputBasicDesign inputErrorDesign"
-                  }
-                  type={"text"}
-                  name={"phone"}
-                  required={true}
-                  placeholder="Phone number"
-                  changeFunction={(e) => inputHandler(e)}
-                  blurFunction={(e) => checkError(e)}
-                />
-                <div>{credentialsError.phoneError}</div>
-              </Col>
-              <Col md={4} id="formGridEmail">
-                <p>Email address</p>
+            <Col sm={12} lg={6} id="formGridEmail">
+            <p className="mb-0 mt-3">Email</p>
                 <InputText 
                 className={
                   credentialsError.emailError === ""
-                    ? "inputBasicDesign inputEmailDesign"
-                    : "inputBasicDesign inputErrorDesign inputEmailDesign"
-                }
+                  ? "inputsDesignCommon inputBasicDesign inputEmailDesign"
+                  : "inputsDesignCommon inputBasicDesign inputErrorDesign inputEmailDesign"
+              }
                 type={"email"}
                 name={"email"}
                 required={true}
@@ -214,33 +198,36 @@ const checkError = (e) => {
               />
               <div>{credentialsError.emailError}</div>
               </Col>
-
-              <Col md={4} id="formGridPassword">
-                <p>Password</p>
+              <Col sm={12} lg={6} id="formGridPassword">
+                  <p className="mb-0 mt-3">Password</p>
                 <InputText 
                 className={
                   credentialsError.passwordError === ""
-                    ? "inputBasicDesign inputPasswordDesign"
-                    : "inputBasicDesign inputErrorDesign inputPasswordDesign"
-                }
+                  ? "inputsDesignCommon inputBasicDesign inputPasswordDesign"
+                  : "inputsDesignCommon inputBasicDesign inputErrorDesign inputPasswordDesign"
+              }
                 type={"password"}
                 name={"password"}
                 required={true}
-                placeholder="Password"
+                placeholder="e.g. 123456789"
                 changeFunction={(e) => inputHandler(e)}
                 blurFunction={(e) => checkError(e)}
               />
               <div>{credentialsError.passwordError}</div>
               </Col>
-            </Row>
 
-            <Col md={3} id="formGridAddress">
-              <p>Address</p>
+        
+            
+             
+            </Row>
+            <Row>
+            <Col sm={12} lg={6} id="formGridAddress">
+                <p className="mb-0 mt-3">Address</p>
               <InputText
                 className={
-                credentialsError.addressError === ""
-                  ? "inputBasicDesign inputAddressDesign"
-                  : "inputBasicDesign inputErrorDesign inputAddressDesign"
+                  credentialsError.addressError === ""
+                  ? "inputsDesignCommon inputBasicDesign inputAddressDesign"
+                  : "inputsDesignCommon inputBasicDesign inputErrorDesign inputAddressDesign"
               }
               type={"text"}
               name={"address"}
@@ -252,36 +239,54 @@ const checkError = (e) => {
             <div>{credentialsError.addressError}</div>
             </Col>
 
+            <Col  id="formGridPhone">
+                  <p className="mb-0 mt-3">Phone</p>
+                <InputText
+                  className={
+                    credentialsError.phoneError === ""
+                    ? "inputsDesignCommon inputBasicDesign"
+                    : "inputsDesignCommon inputBasicDesign inputErrorDesign"
+                }
+                  type={"text"}
+                  name={"phone"}
+                  required={true}
+                  placeholder="e.g. 666666666"
+                  changeFunction={(e) => inputHandler(e)}
+                  blurFunction={(e) => checkError(e)}
+                />
+                <div>{credentialsError.phoneError}</div>
+              </Col>
+
+              </Row>
+
+              <Row className="d-flex justify-content-center">
+              <div
+                type="submit"
+                className={
+                  registerAct
+                    ? "mt-3 buttonDesign registerSendAct text-center"
+                    : "mt-3 buttonDesign text-center"
+                }
+                onClick={
+                  registerAct
+                    ? () => {
+                      modifyUserProfile();
+
+                      }
+                    : () => {}
+                }
+              >
+                Submit
+              </div>
+              </Row>
 
 
 
-
-   
-
-
-    <div
-    // type="submit"
-    // className={
-    //   updateAppointmentAct
-    //     ? "registerSendDeac registerSendAct text-center"
-    //     : "registerSendDeac text-center"
-    // }
-    onClick={
-      // updateAppointmentAct
-        () => { 
-            modifyUserProfile();
-          
-        //   }
-        // : () => {}
-    }}
-  >
-    Submit
-  </div>
     </Container>
     </div>
       </div>
       </div>
-</>
+
 
   )
 };
