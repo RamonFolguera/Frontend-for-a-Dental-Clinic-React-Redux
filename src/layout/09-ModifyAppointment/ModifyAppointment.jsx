@@ -1,3 +1,4 @@
+import Moment from "moment";
 import React, { useEffect, useState } from 'react'
 import { Col, Container, Form, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
@@ -75,7 +76,11 @@ export const ModifyAppointment = () => {
           <Col md={12} id="formGridDate">
   <div className="d-flex flex-column">
   <p className="ps-1 nameFieldDesign mb-1">Date:</p>
-  <p className="ps-1 nameFieldDesign mb-1">{appoimentSelectedRdx.choosenAppointment.date }</p>
+  <p className="ps-1 nameFieldDesign mb-1">
+  {Moment(appoimentSelectedRdx.choosenAppointment.date).format(
+                            "DD/MM/YYYY HH:mm:ss"
+                          )}
+  </p>
     <InputText
                   type={"datetime-local"}
                   name={"date"}

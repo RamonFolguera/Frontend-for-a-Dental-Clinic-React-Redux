@@ -7,7 +7,7 @@
 }
 
 .formBookApp {
-    width:36em !important;
+    /* width:36em !important; */
     height: 20em;
     padding: 5em;
     background-color: var(--blue-light);
@@ -15,14 +15,6 @@
     display:flex;
     flex-direction: column;
     justify-content: center;
-    align-items: start;
     box-shadow:  0px 0px 10px 2px rgba(0,0,0,0.13);
 }
 
-.rowDesign {
-    width: 100%;
-}
-
-.dateInputDesign {
-    width: 100%;
-}

@@ -70,11 +70,10 @@ export const CreateAppoinment = () => {
   };
 
   return (
-    <div className="bookAppFormBody">
-      <h2>Please, enter your appointment details</h2>
-      <Container className="formBookApp">
+    
+      <Container className="formBookApp defaultPageHeight mt-5 mb-5">
         <Row className="mb-3 rowDesign">
-          <Col md={12} id="formGridDate">
+          <Col  id="formGridDate">
             <div className="d-flex flex-column">
               <p className="pe-4 nameFieldDesign">Date:</p>
               <InputText
@@ -89,8 +88,8 @@ export const CreateAppoinment = () => {
           </Col>
         </Row>
 
-        <Row className="mb-3 w-100">
-          <Col md={12} id="formGridDate">
+        <Row className="mb-3">
+          <Col  id="formGridDate">
             <Form>
               <Form.Group className="mb-3">
                 <p className="pe-4 nameFieldDesign">Treatment:</p>
@@ -114,8 +113,9 @@ export const CreateAppoinment = () => {
             </Form>
           </Col>
         </Row>
-        <Row className="mb-3 w-100 d-flex justify-content-center">
-        <Col md={4} id="formGridDate">
+        <Row className="mb-3  d-flex justify-content-center">
+
+     
         <div
           type="submit"
           className={
@@ -127,16 +127,16 @@ export const CreateAppoinment = () => {
             BookAppointmentAct
               ? () => {
                   bookApp();
-                  <div>hola</div>;
                 }
               : () => {}
           }
         >
           Submit
         </div>
-        </Col>
+    
+
         </Row>
       </Container>
-    </div>
+    
   );
 };
