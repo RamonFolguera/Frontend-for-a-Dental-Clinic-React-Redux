@@ -81,9 +81,6 @@ export const Register = () => {
     let checked = validate(e.target.name, e.target.value, e.target.required);
 
     error = checked.message;
-    console.log(error);
-
-    console.log("aqui seteamos el hook de las validaciones", valiCredentials);
 
     setValiCredentials((prevState) => ({
       ...prevState,

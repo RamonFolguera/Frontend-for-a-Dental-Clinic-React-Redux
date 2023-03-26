@@ -1,3 +1,4 @@
+import Moment from 'moment';
 import React, { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -76,7 +77,13 @@ export const AppointmentsAsClient = () => {
                   onClick={() => appointmentSelected(appointment)}
                   className="userCardDesign"
                 >
-                  <div>{appointment.date}</div>
+              <div className="d-flex">
+                    <p className="pe-4 nameFieldDesign">Date/time:</p>
+
+                  <p>{Moment(appointment.date).format('DD/MM/YYYY HH:mm:ss')}</p>
+
+                  </div>
+              
                   <div className="d-flex">
                     <p className="pe-4 nameFieldDesign">Treatment:</p>
                     <p>{appointment.Service.name}</p>

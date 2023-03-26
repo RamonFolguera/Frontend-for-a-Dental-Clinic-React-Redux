@@ -3,7 +3,7 @@ import { Spinner } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { bringMyAppointmentsAsDoctor } from '../../services/apiCalls';
 import { userData } from '../userSlice';
-
+import './MyAppointmentsAsDoctor.css'
 export const MyAppointmentsAsDoctor = () => {
   
   const [appointments, setAppointments] = useState([]);

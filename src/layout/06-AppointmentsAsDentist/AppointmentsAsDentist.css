@@ -13,7 +13,6 @@
 
 .appointmentCardDesign:hover{
     background-color: rgb(252, 252, 252);
-    cursor: pointer;
     border: 0.05em grey solid;
 
 }
