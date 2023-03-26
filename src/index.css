@@ -83,3 +83,10 @@ body {
     border: 0.05em grey solid;
 
 }
+
+.formBookApp {
+    min-height: 50%;
+  
+    max-width: 80%;
+  
+}

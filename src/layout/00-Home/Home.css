@@ -7,11 +7,11 @@
 
 .bck-img-container {
     margin: 0;
-    height: 35em;
+    height: 15em;
     width: 100%;
     background-image: url('../../../img/girl-smiling.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 
 .home-title {
@@ -22,8 +22,8 @@
 
 .section2 {
     padding-top: 1em;
-    border: 1px solid black;
-    height: 10em;
+    margin:  3em 0;
+    height: 36em;
 }
 
 .section2-text {
@@ -45,3 +45,35 @@
     color: black;
 }
 
+.welcomeHomeMsg {
+    margin-top: 1em;
+    width: 50%;
+    display:flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+}
+
+
+@media (min-width:576px) {
+    .bck-img-container {
+        height: 40em;
+        background-size: cover;
+    }
+
+    .welcomeHomeMsg {
+        margin-left:5em;
+        margin-top: 10em;
+        width: 50%;
+        display:flex;
+        justify-content: start;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .section2 {
+        padding-top: 5em;
+        margin:  3em 0;
+        height: 15em;
+    }
+}

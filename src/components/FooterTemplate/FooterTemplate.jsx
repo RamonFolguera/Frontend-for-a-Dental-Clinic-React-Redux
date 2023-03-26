@@ -1,11 +1,9 @@
 import React from "react";
 import { Whatsapp, Instagram, Facebook, Twitter, Youtube, Linkedin } from 'react-bootstrap-icons';
-
+import './FooterTemplate.css'
 
 
 export const FooterTemplate = () => {
-
-
 
   return (
     <footer className="bg-light text-center text-lg-start">

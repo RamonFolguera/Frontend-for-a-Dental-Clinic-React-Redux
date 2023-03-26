@@ -96,29 +96,27 @@ export const Register = () => {
   const userRegister = () => {
     registerUser(credentials);
 
-    setWelcome(`Hi. Thank you for trusting in us!`);
+    setWelcome(`Welcome to Happy Teeth. Thank you for trusting in us!`);
     setTimeout(() => {
       navigate("/");
     }, 3000);
   };
 
   return (
-  <>
+
     
-    <div className="registerFormBody">
-     
-      <div className="imgSide"></div>
+    <div className="d-flex justify-content-center defaultPageHeight">
+      
       {welcome === "" ? (
-       
         <div className="registerContent">
-          <div className="registerTitle w-100 text-center pt-3 pb-3">
+          <div className="w-100 text-center pt-3 pb-3">
             <h1>Register with Happy Teeth</h1>
           </div>
-          <div className="formContainerDesign">
+          <div className="registerContainerDesign mb-5">
             <Container>
               <Row className="mb-3">
                 <Col md={4} id="formGridName">
-                  <p>Name</p>
+                  <p className="mb-0 mt-3">Name</p>
                   <InputText
                     className={
                       credentialsError.nameError === ""
@@ -136,7 +134,7 @@ export const Register = () => {
                 </Col>
 
                 <Col md={4} id="formGridFirstSurname">
-                  <p>First Surname</p>
+                  <p className="mb-0 mt-3">First Surname</p>
                   <InputText
                     className={
                       credentialsError.first_surnameError === ""
@@ -154,7 +152,7 @@ export const Register = () => {
                 </Col>
 
                 <Col md={4} id="formGridSecondSurname">
-                  <p>Second Surname</p>
+                  <p className="mb-0 mt-3">Second Surname</p>
                   <InputText
                     className={
                       credentialsError.second_surnameError === ""
@@ -173,8 +171,8 @@ export const Register = () => {
               </Row>
               <Row className="mb-3">
                
-                <Col id="formGridEmail">
-                  <p>Email address</p>
+                <Col sm={12} lg={6} id="formGridEmail">
+                  <p className="mb-0 mt-3">Email</p>
                   <InputText
                     className={
                       credentialsError.emailError === ""
@@ -191,8 +189,8 @@ export const Register = () => {
                   <div>{credentialsError.emailError}</div>
                 </Col>
 
-                <Col id="formGridPassword">
-                  <p>Password</p>
+                <Col sm={12} lg={6} id="formGridPassword">
+                  <p className="mb-0 mt-3">Password</p>
                   <InputText
                     className={
                       credentialsError.passwordError === ""
@@ -210,8 +208,8 @@ export const Register = () => {
                 </Col>
               </Row>
               <Row>
-              <Col  id="formGridAddress">
-                <p>Address</p>
+              <Col sm={12} lg={6} id="formGridAddress">
+                <p className="mb-0 mt-3">Address</p>
                 <InputText
                   className={
                     credentialsError.addressError === ""
@@ -228,7 +226,7 @@ export const Register = () => {
                 <div>{credentialsError.addressError}</div>
               </Col>
               <Col  id="formGridPhone">
-                  <p>Phone number</p>
+                  <p className="mb-0 mt-3">Phone</p>
                   <InputText
                     className={
                       credentialsError.phoneError === ""
@@ -257,7 +255,9 @@ export const Register = () => {
                   registerAct
                     ? () => {
                         userRegister();
-                        <div>{welcome}</div>;
+                        <div className="d-flex justify-content-center align-items-center welcomeMsgContainerDesign">
+        <h1 className="welcomeMsgDesign">{welcome}</h1>
+        </div>
                       }
                     : () => {}
                 }
@@ -269,9 +269,11 @@ export const Register = () => {
           </div>
         </div>
       ) : (
-        <div>{welcome}</div>
+        <div className="d-flex justify-content-center align-items-center welcomeMsgContainerDesign">
+        <h1 className="welcomeMsgDesign">{welcome}</h1>
+        </div>
       )}
     </div>
-    </>
+   
   );
 };

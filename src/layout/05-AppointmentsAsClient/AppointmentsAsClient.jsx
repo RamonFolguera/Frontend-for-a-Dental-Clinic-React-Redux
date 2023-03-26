@@ -30,7 +30,6 @@ export const AppointmentsAsClient = () => {
         bringAppointments(credentialsRdx.credentials.token)
           .then((result) => {
             setLoading(false);
-console.log(result.data.data);
             if (result.data.data.length === 0) {
               return;
             }
@@ -43,7 +42,6 @@ console.log(result.data.data);
 
   const appointmentSelected = (appointment) => {
     dispatch(addChoosenAppointment({ choosenAppointment: appointment }));
-    console.log(addChoosenAppointment({ choosenAppointment: appointment }));
     setTimeout(() => {
       navigate("/modify-appointment");
     }, 1000);
