@@ -17,7 +17,7 @@ export const UserProfileAsAdmin = () => {
   const credentialsRdx = useSelector(userData)
 
   const user = userDetailsRdx.choosenObject
-  console.log(userDetailsRdx)
+  
   const navigate = useNavigate();
 
   useEffect(() => {

@@ -71,7 +71,7 @@ export const Login = () => {
   
 
   const loginFunction = () => {
-    console.log("entro");
+   
     logMe(credentials)
     .then((userData) => {
           let decoded = decodeToken(userData.data.data)

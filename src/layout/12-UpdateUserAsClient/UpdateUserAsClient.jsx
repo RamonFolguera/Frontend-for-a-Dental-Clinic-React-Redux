@@ -86,7 +86,7 @@ const checkError = (e) => {
   error = checked.message;
   console.log(error)
 
-  console.log("aqui seteamos el hook de las validaciones", valiCredentials);
+  
 
   setValiCredentials((prevState) => ({
     ...prevState,
@@ -100,7 +100,7 @@ const checkError = (e) => {
 };
 
   const modifyUserProfile = () => {
-    console.log("entro en submit");  
+    
     updateUserProfile(credentials, credentialsRdx.credentials.token);
   
     setTimeout(() => {

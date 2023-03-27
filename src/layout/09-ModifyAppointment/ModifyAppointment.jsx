@@ -10,7 +10,13 @@ import { userData } from "../userSlice";
 
 export const ModifyAppointment = () => {
   const navigate = useNavigate();
+  const credentialsRdx = useSelector(userData);
+  const appoimentSelectedRdx = useSelector(appointmentData);
+
+  let params = appoimentSelectedRdx.choosenAppointment.id;
+
   const [dataAppointment, setDataAppointment] = useState({
+    id: params,
     date: "",
     service_id: "",
     doctor_id: "",
@@ -30,6 +36,7 @@ export const ModifyAppointment = () => {
       name: "Root canal treatment (endodontics)",
     },
   ]);
+
   const [doctors, setDoctors] = useState([
     {
       id: 1,
@@ -41,16 +48,15 @@ export const ModifyAppointment = () => {
     },
   ]);
 
+
   const inputHandler = (e) => {
     setDataAppointment((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
+    
   };
-  const credentialsRdx = useSelector(userData);
-  const appoimentSelectedRdx = useSelector(appointmentData);
 
-  let params = appoimentSelectedRdx.choosenAppointment.id;
 
   const [UpdateAppointmentAct, setUpdateAppointmentAct] = useState(false);
   const [valiInfoAppointment, setValiInfoAppointment] = useState({
@@ -75,7 +81,6 @@ export const ModifyAppointment = () => {
   const checkError = (e) => {};
 
   const updateApp = () => {
-    console.log("entro en submit");
     updateAppointment(
       params,
       dataAppointment,
@@ -85,7 +90,7 @@ export const ModifyAppointment = () => {
       navigate("/appointments-as-client");
     }, 500);
   };
-
+  
   return (
     <div className="bookAppFormBody">
       <h2>Please, enter details to update</h2>
@@ -112,7 +117,7 @@ export const ModifyAppointment = () => {
         <Row className="mb-3  rowDesign">
           <Col md={12} id="formGridDate">
             <Form>
-              <Form.Group className="mb-3">
+             
                 <p className="ps-2 nameFieldDesign mb-1">Treatment:</p>
                 <Form.Select
                   name={"service_id"}
@@ -129,8 +134,8 @@ export const ModifyAppointment = () => {
                     );
                   })}
                 </Form.Select>
-              </Form.Group>
-              <Form.Group className="mb-3">
+              
+            
                 <p className="pe-4 nameFieldDesign">Doctor:</p>
                 <Form.Select
                   name={"doctor_id"}
@@ -141,13 +146,14 @@ export const ModifyAppointment = () => {
 
                   {doctors.map((doctor) => {
                     return (
+                      
                       <option key={doctor.id} value={doctor.id}>
                         {doctor.name}
                       </option>
                     );
                   })}
                 </Form.Select>
-              </Form.Group>
+              
             </Form>
           </Col>
         </Row>

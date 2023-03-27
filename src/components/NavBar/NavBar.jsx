@@ -2,6 +2,7 @@ import { Facebook, Instagram, Linkedin, Twitter, Youtube } from 'react-bootstrap
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import logo from "../../../img/dental-clinic-logo.png"
 
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -15,8 +16,8 @@ export const NavBar = () => {
       <Nav>
         <Navbar.Brand as={Link} to='/'>
         <img
-              alt="logo smiley teeth"
-              src="../../../img/dental-clinic-logo.png"
+              alt="logo"
+              src={logo}
               width="170"
               height="50"
               className="d-inline-block align-top"

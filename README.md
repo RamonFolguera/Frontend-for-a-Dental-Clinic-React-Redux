@@ -7,10 +7,10 @@
     <li><a href="#sobre-el-proyecto-🔎">About</a></li>
     <li><a href="#deploy-🚀">Deploy</a></li>
     <li><a href="#stack">Stack</a></li>
-    <li><a href="#instalación-en-local">Installation</a></li>
+    <!-- <li><a href="#instalación-en-local">Installation</a></li> -->
     <li><a href="#vistas">Pages</a></li>
     <li><a href="#futuras-funcionalidades">Future functionalities</a></li>
-    <li><a href="#contribuciones">Contributions</a></li>
+    <!-- <li><a href="#contribuciones">Contributions</a></li> -->
     <li><a href="#licencia">License</a></li>
     <li><a href="#webgrafia">Webography</a></li>
     <li><a href="#desarrollo">Development</a></li>
@@ -27,7 +27,7 @@ We continue working creating our Dental Practise web application. I worked on ge
   
 ## Deploy 🚀
 <div align="center">
-    <a href="https://www.google.com"><strong>Url a producción </strong></a>🚀🚀🚀
+    <a href="https://ramonfe.d3ez7d9tg3bbnk.amplifyapp.com/"><strong>Url to my Dental Practise Web Application </strong></a>🚀🚀🚀
 </div>
 
 ## Stack
@@ -40,7 +40,7 @@ We continue working creating our Dental Practise web application. I worked on ge
 </a>
  </div>
 
-## Local installation
+<!-- ## Local installation
 To be able to see how it works for yourself on your local computer, please follow next steps:
 1. Copy the repository url and clone it on your computer with git bash: 
  ```
@@ -48,7 +48,7 @@ $git clone https://github.com/RamonFolguera/rfc-geekshubs-fsd-val-project5-26032
  ```
 2. Install all dependencies with: ` $ npm install `
 3. ``` $ npm run dev ```
-4. ...
+4. ... -->
 
 ## Pages
 Landing
@@ -70,12 +70,10 @@ Get list of appointments as doctor
 Get all registered users as admin
 <img src="./img/readme/allregisteredusersasadmin.JPG">
 
-## Future functionalities  
+## Future functionaly
 ⬜ Search and filter tool to find a user or an appointment  
-⬜ Being able to   
-⬜ ...  
 
-## Contributions
+<!-- ## Contributions
 Suggestions and contributions are more than welcomed.  
 
 Puedes hacerlo de dos maneras:
@@ -94,7 +92,7 @@ Puedes hacerlo de dos maneras:
         ```
         $ git push origin feature/nombreUsuario-mejora
         ```
-    - Abre una solicitud de Pull Request
+    - Abre una solicitud de Pull Request -->
 
 ## License
 This project has been created under a MIT License. To learn more about the details go to LICENSE.md.

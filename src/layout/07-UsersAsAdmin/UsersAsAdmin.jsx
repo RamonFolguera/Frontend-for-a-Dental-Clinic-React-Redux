@@ -34,7 +34,7 @@ export const UsersAsAdmin = () => {
 
   const selected = (user) => {
     dispatch(addChoosen({ choosenObject: user }));
-    console.log(dispatch(addChoosen({ choosenObject: user })));
+  
 
     setTimeout(() => {
       navigate("/user-profile-as-admin");
