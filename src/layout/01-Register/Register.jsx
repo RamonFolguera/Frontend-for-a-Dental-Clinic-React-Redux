@@ -236,7 +236,7 @@ export const Register = () => {
                     type={"text"}
                     name={"phone"}
                     required={true}
-                    placeholder="e.g. 666666666"
+                    placeholder="e.g. +34666555444"
                     changeFunction={(e) => inputHandler(e)}
                     blurFunction={(e) => checkError(e)}
                   />

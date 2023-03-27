@@ -84,7 +84,6 @@ const checkError = (e) => {
   );
 
   error = checked.message;
-  console.log(error)
 
   
 
@@ -250,7 +249,7 @@ const checkError = (e) => {
                   type={"text"}
                   name={"phone"}
                   required={true}
-                  placeholder="e.g. 666666666"
+                  placeholder="e.g. +34666555444"
                   changeFunction={(e) => inputHandler(e)}
                   blurFunction={(e) => checkError(e)}
                 />
