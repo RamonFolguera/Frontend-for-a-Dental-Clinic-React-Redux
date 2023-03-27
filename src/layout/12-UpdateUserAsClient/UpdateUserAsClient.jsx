@@ -208,7 +208,7 @@ const checkError = (e) => {
                 type={"password"}
                 name={"password"}
                 required={true}
-                placeholder="e.g. 123456789"
+                placeholder="e.g. Password_123"
                 changeFunction={(e) => inputHandler(e)}
                 blurFunction={(e) => checkError(e)}
               />

@@ -37,8 +37,9 @@ export const validate = (name, data, required) => {
       case "password":
         if (data === "" && required === true) {
           return {message: "Please fill the field", validated: false};
-        } else if (!/[\d()+-]/g.test(data)) {
-          return {message: "Invalid password format", validated: false};
+        } else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+|~\-=?\[\]{};:<>,./]).{8,}$/g
+        .test(data)) {
+          return {message: "Passwords should contain: Uppercase letters: A-Z, Lowercase letters: a-z, Numbers: 0-9 and Special characters.", validated: false};
         }
         return {message: "", validated: true};
         
