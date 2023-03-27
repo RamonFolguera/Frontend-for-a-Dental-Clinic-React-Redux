@@ -71,7 +71,8 @@ Get all registered users as admin
 <img src="./img/readme/allregisteredusersasadmin.JPG">
 
 ## Future functionaly
-⬜ Search and filter tool to find a user or an appointment  
+⬜ Search and filter tool to find a user or an appointment
+⬜ Add a Superadmin role able to assign roles to our users
 
 <!-- ## Contributions
 Suggestions and contributions are more than welcomed.  
