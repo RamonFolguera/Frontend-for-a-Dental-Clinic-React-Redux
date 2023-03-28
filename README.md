@@ -54,13 +54,13 @@ We continue working creating our Dental Practise web application. I worked on ge
     <img src= "https://img.shields.io/badge/git-F54D27?style=for-the-badge&logo=git&logoColor=white"/>
 </a>
 <a href="https://nodejs.org/en">
-    <img src= "https://img.shields.io/badge/node.JS-F54D50?style=for-the-badge&logo=node.js&logoColor=white"/>
+    <img src= "https://img.shields.io/badge/node.JS-68a063?style=for-the-badge&logo=node.js&logoColor=white"/>
 </a>
-<a href="https://nodejs.org/en">
-    <img src= "https://img.shields.io/badge/node.JS-F54D50?style=for-the-badge&logo=node.js&logoColor=white"/>
+<a href="https://img.shields.io/badge/express.JS-F54D50?style=for-the-badge&logo=express.js&logoColor=white">
+    <img src= "https://img.shields.io/badge/express.JS-808080?style=for-the-badge&logo=express&logoColor=white"/>
 </a>
-<a href="https://nodejs.org/en">
-    <img src= "https://img.shields.io/badge/node.JS-F54D50?style=for-the-badge&logo=node.js&logoColor=white"/>
+<a href="https://img.shields.io/badge/npm-F54D50?style=for-the-badge&logo=npm.js&logoColor=white">
+    <img src= "https://img.shields.io/badge/npm-CC3534?style=for-the-badge&logo=npm&logoColor=white"/>
 </a>
 </div>
 
