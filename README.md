@@ -27,7 +27,7 @@ We continue working creating our Dental Practise web application. I worked on ge
   
 ## Deploy 🚀
 <div align="center">
-    <a href="https://ramondp.dppguz4ydu6eh.amplifyapp.com/"><strong>Url to my Dental Practise Web Application </strong></a>🚀🚀🚀
+    <a href="https://fedramon.d1rways0eyajks.amplifyapp.com/"><strong>Url to my Dental Practise Web Application </strong></a>🚀🚀🚀
 </div>
 
 ## Stack
