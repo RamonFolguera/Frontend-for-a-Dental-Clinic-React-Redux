@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { InputText } from "../../components/InputText/InputText";
 import { validate } from "../../helpers/useful";
 import { updateUserProfile } from "../../services/apiCalls";
 import { userData } from "../userSlice";
 
 export const UpdateUserAsClient = () => {
+
+  const navigate = useNavigate()
   const [credentials, setCredentias] = useState({
     name: "",
     first_surname: "",
@@ -104,7 +107,7 @@ const checkError = (e) => {
   
     setTimeout(() => {
       navigate("/Profile");
-    }, 3000);
+    }, 500);
 
   };
 

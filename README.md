@@ -1,4 +1,4 @@
-# Welcome to my frontend app - Happy Teeth Dental Practise 
+# Welcome to my frontend app - Happy Teeth Dental Practice 
 
 <details>
   <summary>Content 📝</summary>
@@ -27,7 +27,7 @@ We continue working creating our Dental Practise web application. I worked on ge
   
 ## Deploy 🚀
 <div align="center">
-    <a href="https://fedramon.d1rways0eyajks.amplifyapp.com/"><strong>Url to my Dental Practise Web Application </strong></a>🚀🚀🚀
+    <a href="https://ramondp.dppguz4ydu6eh.amplifyapp.com/"><strong>Url to my Dental Practise Web Application </strong></a>🚀🚀🚀
 </div>
 
 ## Stack
@@ -36,9 +36,33 @@ We continue working creating our Dental Practise web application. I worked on ge
     <img src= "https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
 </a>
 <a href="https://developer.mozilla.org/es/docs/Web/JavaScript">
-    <img src= "https://img.shields.io/badge/javascipt-EFD81D?style=for-the-badge&logo=javascript&logoColor=black"/>
+    <img src= "https://img.shields.io/badge/javascript-EFD81D?style=for-the-badge&logo=javascript&logoColor=black"/>
 </a>
- </div>
+<a href="https://railway.com/">
+    <img src= "https://img.shields.io/badge/railway-%23000000.svg?style=for-the-badge&logo=railway&logoColor=white"/>
+</a>
+<a href="https://developer.mozilla.org/es/docs/Web/CSS">
+    <img src= "https://img.shields.io/badge/css-1D7CF2?style=for-the-badge&logo=css3&logoColor=white"/>
+</a>
+<a href="https://www.w3schools.com/html/">
+    <img src= "https://img.shields.io/badge/html5-1D0CF2?style=for-the-badge&logo=html5&logoColor=white"/>
+</a>
+<a href="https://react-bootstrap.github.io/">
+    <img src= "https://img.shields.io/badge/react bootstrap-F54D50?style=for-the-badge&logo=bootstrap&logoColor=white"/>
+</a>
+<a href="https://git-scm.com/">
+    <img src= "https://img.shields.io/badge/git-F54D27?style=for-the-badge&logo=git&logoColor=white"/>
+</a>
+<a href="https://nodejs.org/en">
+    <img src= "https://img.shields.io/badge/node.JS-F54D50?style=for-the-badge&logo=node.js&logoColor=white"/>
+</a>
+<a href="https://nodejs.org/en">
+    <img src= "https://img.shields.io/badge/node.JS-F54D50?style=for-the-badge&logo=node.js&logoColor=white"/>
+</a>
+<a href="https://nodejs.org/en">
+    <img src= "https://img.shields.io/badge/node.JS-F54D50?style=for-the-badge&logo=node.js&logoColor=white"/>
+</a>
+</div>
 
 <!-- ## Local installation
 To be able to see how it works for yourself on your local computer, please follow next steps:
